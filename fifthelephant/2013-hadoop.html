@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js no-userlogin"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Hadoop, MapReduce and friends — Hacknight</title>
+    <meta name="DC.title" content="Hadoop, MapReduce and friends" />
+    <meta property="og:title" content="Hadoop, MapReduce and friends" />
+  <meta name="description" content="" />
+  <meta property="og:description" content="" />
+  <meta name="author" href="/humans.txt" />
+  <meta name="csrf-token" content="ImY2ZTkyMWRhOTQ5YzA0YWQwZTRlZjAxYjhjNDk3NWViYWUxNDBkYzki.XnwnBA.tpFc6D-7SuIwNiyzIT0arJ6BkDE" />
+  
+  <link rel="icon" href="../favicon.ico" />
+    <link rel="canonical" href="2013-hadoop.html" />
+    <meta property="og:url" content="https://hacknight.in/fifthelephant/2013-hadoop" />
+  <!-- Overriding so that facebook can pickup hacknight logo rather than HasGeek logo-->
+  <!-- http://stackoverflow.com/questions/1138460/how-does-facebook-sharer-select-images -->
+  <link rel="image_src" href="../static/img/hacknightlogo.png" />
+  <meta property="og:image" content="/static/img/hacknightlogo.png" />
+  <meta name="referrer" content="always" />
+
+  <!-- Included CSS Files -->
+  <link rel="stylesheet" type="text/css" href="../static/css/baseframe-packed.css" /><link rel="stylesheet" type="text/css" href="../_baseframe/css/leaflet.css" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic,600italic,400,600" />
+</head>
+<body>
+  <div id="root">
+      <!-- headerbox -->
+      
+  <header>
+    <div id="hg-bar" class="no-print hg-dark">
+    <div class="container">
+          <ul id="hg-barlinks">
+            
+    <li id="hg-networkbar-home" class="strong"><a href="https://hasgeek.com/">HasGeek</a></li>
+    <li id="hg-networkbar-hasjob"><a href="https://hasjob.co/">Hasjob</a></li>
+    <li id="hg-networkbar-hgtv"><a href="https://hasgeek.tv/">HGTV</a></li>
+    <li id="hg-networkbar-talkfunnel"><a href="https://talkfunnel.com/">Talkfunnel</a></li>
+    <li id="hg-networkbar-events"><a href="2013-hadoop.html#" class="hg-submenu">Events</a>
+        <ul>
+          
+    <li id="hg-networkbar-metarefresh"><a href="https://metarefresh.in/">Meta Refresh</a></li>
+    <li id="hg-networkbar-rootconf"><a href="https://rootconf.in/">Rootconf</a></li>
+    <li id="hg-networkbar-fifthelephant"><a href="https://fifthelephant.in/">The Fifth Elephant</a></li>
+    <li id="hg-networkbar-jsfoo"><a href="https://jsfoo.in/">JSFoo</a></li>
+    <li id="hg-networkbar-droidcon"><a href="https://droidcon.in/">Droidcon India</a></li>
+    <li id="hg-networkbar-pastevents" class="hg-menu-section">Past events</li>
+    <li id="hg-networkbar-angularjs-miniconf"><a href="https://metarefresh.in/2014/angularjs-miniconf">AngularJS Miniconf</a></li>
+    <li id="hg-networkbar-cartonama"><a href="https://cartonama.com/2012">Cartonama Conference</a></li>
+    <li id="hg-networkbar-phpcloud"><a href="https://phpcloud.hasgeek.com/">Scaling PHP in the Cloud</a></li>
+    <li id="hg-networkbar-androidcamp"><a href="https://androidcamp.hasgeek.com/">AndroidCamp</a></li>
+    <li id="hg-networkbar-doctypehtml5"><a href="http://www.doctypehtml5.in/">DocType HTML5</a></li>
+        </ul></li>
+          </ul>
+        <ul id="hg-usertools">
+          
+            <li><a href="http://hacknight.in/login.html">Login or sign up</a></li>
+        </ul>
+            
+  <iframe height="0" width="0" tabindex="-1" style="display: none; border: 0; height: 0; width: 0" aria-hidden="true" role="presentation" src="https://auth.hasgeek.com/?client_id=th55APk8Q-yApn-fQ3Ah-Q&amp;login_url=https://hacknight.in/login"></iframe>
+
+    </div>
+  </div>
+    <div id="page-header-inner">
+      <div class="container">
+        <div class="row">
+          <div class="span10 logo">
+              <a href="../index.html" title="Home">
+              <img id="inner-page-logo" src="../static/img/hacknightlogo-small.png" alt="Hacknight">
+            </a>
+          </div>
+          <!--<div class="span2 home-buttons" id="start-btn-after-login">
+            
+              <a href="/login" class="btn btn-primary" id="create" title="Create your event">Start a hacknight</a>
+            
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </header>
+
+      <!-- /headerbox -->
+
+      
+        <div class="container" id="main-content">
+    
+  
+  
+  <div class="row section">
+    <div class="span9">
+
+      <div class="page-header">
+        <h3><a href="http://hacknight.in/fifthelephant.1.html">The Fifth Elephant</a><i class="icon-caret-right"></i></h3>
+        <h1>Hadoop, MapReduce and friends</h1>
+      </div>
+      <div class="event-description">
+        <span><p>Hadoop has nearly become synonymous with Big Data. There is a large community backing this open source project, making it a foundation piece for several other open-source projects and tools.</p>
+<p>In this hacknight, you will go through short tutorials on how to get started with hadoop - how to build it, get a dev environment on your laptop and write map-reduce programs in that environment.</p>
+<p>With the help of a few convenience scripts, pre-packaged config files and some hand-holding from Gopal Vijayaraghavan, you can download hadoop, build it and set up a single node cluster without much trouble. This sets up a very simple, non-secure hadoop cluster, easily extensible to a few nodes. The multiple node setup is only useful to debug node locality and schedulers, but for most of the HDFS/Hadoop development, the single node cluster works wonders.</p>
+<p>Once you have learnt how to set up a cluster on your system, you can dig deeper into the architecture and try to modify hadoop itself to your needs. Perhaps there’s something in there that’s annoyed you for months? Maybe you think hadoop will be better off with a DualPivotQuickSort instead of the default sort? Actually, that sounds like a good idea. And it’s not restricted to just java, perhaps you are a javascript wizard and want to fix something in the jquery based web UI?</p>
+<p>Or maybe you’ve got a Big Data problem and hadoop looks like a good way to solve it. Maybe R on Hadoop will fit your problem? The solution might be a quick ETL phase to cut down your logs to size, where Pig might fit in neatly. Or you want to check your A/B tests and funnels, where hive does a good job. If there’s a lot of numpy you already know, perhaps Pydoop might fit the bill. And if all else fails, might as well do it in Java &amp; call it a day.</p>
+<p>And just in case one of those don’t work just exactly right, fixing it is always an option - after cursing, yelling and debugging, not always in that order. Or write your own.</p>
+<p>The hacknight is open to individuals who want to work with hadoop, on hadoop and everything in the neighbourhood. Come prepared with a laptop, a github account, java skills and enough sleep to tide you over the night.</p>
+<h3>Mentors</h3>
+<p><em>Gopal Vijayaraghavan</em> has spent many years making PHP faster at Yahoo! and Zynga. He thinks about performance problems as opportunities to contribute. He has turned towards Hadoop for newer challenges and is chasing performance at both ends of the scale spectrum at Hortonworks. Beyond work, he’s a photographer by day, biker by sunset, and by night he posts <a href="http://twitter.com/t3rmin4t0r" rel="nofollow" target="_blank">random thoughts</a>.</p>
+<p><em>Rohit Chattar </em>is a Senior Architect at Yahoo! in Advertising and Data Platform group. He is a thought leader specializing in designing solutions that uses huge amounts of data. He has deep knowledge and understanding of various usage models involving traditional databases and newer Big Data platforms to provide customer centric and cost effective solutions..</p>
+<h3>What is a hacknight?</h3>
+<p>Hacknight is a space where you can work on your pet project, try a new idea or test the waters of new tools, technologies and languages. At hacknights, you meet new people, make friends and network. Overall, a hacknight is an amazing, hands-on learning experience. HasGeek's hacknights provide developers the opportunity to work in an easy, relaxed, peer-to-peer environment, over a period of 12-20 hours.</p>
+<p>This hacknight is part of The Fifth Elephant 2013, an annual conference on big data, analytics and cloud computing. More details, visit: <a href="http://fifthelephant.in/" rel="nofollow" target="_blank">http://fifthelephant.in/</a></p>
+<h3>Next steps:</h3>
+<ol>
+<li>Register for the hacknight. You will receive a confirmation from us.</li>
+<li>Propose an app idea, and/or join a team.</li>
+<li>Comment on other projects.</li>
+<li>Come to the hacknight with your computer.</li>
+</ol></span>
+      </div>
+    </div>
+    <div class="span3">
+      <ul class="well nav nav-list sidebar">
+          <li><i class="icon-calendar"></i><span>Sat,  8 Jun  3:30 PM &mdash;  8:00 AM  9 Jun 2013</span></li>
+        <li><i class="icon-money"></i><span>Entry Fee: Rs. 500 (free Fifth Elephant 2013 ticket holders)</span></li>
+          <li><a href="../venue/centre-for-internet-and-society.html"><i class="icon-map-marker"></i><span>Centre for Internet and Society</span></a></li>
+          <li><i class="icon-blank"></i><span>No 194, 2nd C Cross, 4th Main</span></li>
+          <li><i class="icon-blank"></i><span>Opp. Domlur Club, Domlur 2nd Stage</span></li>
+          <li><i class="icon-blank"></i><span>Bangalore, Karnataka &ndash; 560 071, IN</span></li>
+        
+
+        
+          <li class="nav-header">Your participation</li>
+        <li><a href="http://hacknight.in/thejulialang/julia-hacknight/apply.html"><i class="icon-signin"></i><span>Register now (login required)</span></a></li>
+        </ul>
+
+      <div class="share">
+        <ul>
+          <li>
+            <a class="btn btn-dark" target="_blank" href="http://twitter.com/share?url=https://hacknight.in/fifthelephant/2013-hadoop&amp;via=HasGeek&amp;text=Hadoop, MapReduce and friends" class="socialite twitter-share" data-url="https://hacknight.in/fifthelephant/2013-hadoop" data-text="Hadoop, MapReduce and friends" data-via="HasGeek">
+              <span class="icon-twitter"></span>
+            </a>
+          </li>
+          <li>
+            <a class="btn btn-dark" target="_blank" href="http://www.facebook.com/sharer.php?u=https://hacknight.in/fifthelephant/2013-hadoop&amp;t=Hadoop, MapReduce and friends" class="socialite facebook-share" data-href="https://hacknight.in/fifthelephant/2013-hadoop">
+              <span class="icon-facebook"></span>
+            </a>
+          </li>
+          <li>
+            <a class="btn btn-dark" target="_blank" href="https://plus.google.com/share?url=https://hacknight.in/fifthelephant/2013-hadoop" class="socialite googleplus-share" data-href="https://hacknight.in/fifthelephant/2013-hadoop" data-action="share">
+              <span class="icon-google-plus"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <ul class="nav nav-tabs nav-tabs-auto">
+    <li><a href="2013-hadoop.html#participants" data-toggle="tab">Participants</a></li>
+    <li><a href="2013-hadoop.html#projects" data-toggle="tab">Projects</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane" id="participants">
+      <div class="row"><div class="span3 participant">
+        <a href="http://hacknight.in/abhiroop.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/abhiroop.html">Abhiroop Sarkar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">1</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/abhishekgupta76.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/abhishekgupta76.html">Abhishek Gupta</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">2</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/adarshkkumar.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/adarshkkumar.html">adarshkkumar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">3</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/ajitt08.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/ajitt08.html">Ajit Pai</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">4</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/snoopy.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/snoopy.html">Amrit Raj Misra</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">5</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/arunkakorp.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/arunkakorp.html">arun</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">6</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/ashok3337.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/ashok3337.html">Ashok Kumar Rachakulla</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">7</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/ashwaths.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/ashwaths.html">Ashwath</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">8</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/ashwnacharya.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/ashwnacharya.html">Ashwin Acharya</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">9</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/asifhj.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/asifhj.html">Asif</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">10</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/awasekhirni.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/awasekhirni.html">Awase Khirni Syed</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">11</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/balajisetty.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/balajisetty.html">Balaji Setty</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">12</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/cerebraltangent.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/cerebraltangent.html">Bharat Shetty Barkur</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">13</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/chandra.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/chandra.html">Chandra Reddy</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">14</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/chiddu.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/chiddu.html">Chidambaran Subramanian</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">15</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/deepak-mouli.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/deepak-mouli.html">deepak chandramouli</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">16</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/deeputp.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/deeputp.html">Deepu Thomas Philip</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">17</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/abhinav.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/abhinav.html">Developer at Works</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">18</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/durgaprasadmangali.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/durgaprasadmangali.html">Durga Prasad Mangali</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">19</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/eshmeister.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/eshmeister.html">Eshan Mushtaq</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    1 Project
+                  
+                </em>
+                <ul><li class="project-color-tab project-num4"><a href="http://hacknight.in/fifthelephant/2013-hadoop/projects/4-log-analysis-using-mapreduce-and-pig.html" title="Log Analysis using mapreduce and Pig"> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">20</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/yafaheem.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/yafaheem.html">Faheem Mohammad</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">21</div>
+      </div><div class="span3 participant">
+        <a href="../harisibrahimkv.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="../harisibrahimkv.html">Haris Ibrahim K. V.</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">22</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/harshkumar.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/harshkumar.html">Harsh Kumar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">23</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/harsjain.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/harsjain.html">Harshit Jain</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">24</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/coolgarg.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/coolgarg.html">himanshu garg</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">25</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/kerurj.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/kerurj.html">Jagadish</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">26</div>
+      </div><div class="span3 participant">
+        <a href="../jamna.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="../jamna.html">Jamna Vyas</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">27</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/jogeswarmeher.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/jogeswarmeher.html">jogeswar meher</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">28</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/vkaku.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/vkaku.html">Karthik Kumar Viswanathan</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">29</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/varunesh.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/varunesh.html">Kumar Varun Varunesh</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">30</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/lokjaiswal12.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/lokjaiswal12.html">Lokesh Jaiswal</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">31</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/madhurgarg2005.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/madhurgarg2005.html">Madhur Garg</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">32</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/madhurao78.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/madhurao78.html">Madhusudan</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">33</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/mahgarg.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/mahgarg.html">Mahesh Garg</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">34</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/manuj10.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/manuj10.html">Manuj Paliwal</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">35</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/imba.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/imba.html">Mitesh Ashar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">36</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/mohitsharma28989.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/mohitsharma28989.html">Mohit Sharma</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">37</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/monit1089.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/monit1089.html">Monit Singh</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    1 Project
+                  
+                </em>
+                <ul><li class="project-color-tab project-num4"><a href="http://hacknight.in/fifthelephant/2013-hadoop/projects/4-log-analysis-using-mapreduce-and-pig.html" title="Log Analysis using mapreduce and Pig"> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">38</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/mrinalkumar123.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/mrinalkumar123.html">Mrinal Kumar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">39</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/mkgbv.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/mkgbv.html">Mukesh G</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">40</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/navneet.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/navneet.html">Navneet Gupta (Tech - BLR)</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">41</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/niketkumar.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/niketkumar.html">niket kumar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">42</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/nemesis.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/nemesis.html">nimish gupta</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">43</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/nirajr.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/nirajr.html">Niraj Rajmohan</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">44</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/jhanit.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/jhanit.html">Nitin Kumar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    1 Project
+                  
+                </em>
+                <ul><li class="project-color-tab project-num4"><a href="http://hacknight.in/fifthelephant/2013-hadoop/projects/4-log-analysis-using-mapreduce-and-pig.html" title="Log Analysis using mapreduce and Pig"> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">45</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/mnomkar.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/mnomkar.html">Omkar Sharma MN</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">46</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/pavansudheendra.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/pavansudheendra.html">Pavan Sudheendra</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">47</div>
+      </div><div class="span3 participant">
+        <a href="../praseetha.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="../praseetha.html">Praseetha KR</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">48</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/p7h.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/p7h.html">Prashanth Babu</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">49</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/prashanthraghu.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/prashanthraghu.html">Prashanth Raghu</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">50</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/prateekjain.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/prateekjain.html">Prateek Jain</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">51</div>
+      </div><div class="span3 participant">
+        <a href="../pmandrek.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="../pmandrek.html">Pratik Mandrekar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">52</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/pravinreddy.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/pravinreddy.html">Pravin</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">53</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/ramanareddyg.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/ramanareddyg.html">Ramana Reddy</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">54</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/ramavattigunta.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/ramavattigunta.html">RamaVattigunta</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">55</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/rtnpro.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/rtnpro.html">Ratnadeep Debnath</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">56</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/rohitchatterjee.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/rohitchatterjee.html">Rohit Chatterjee</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">57</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/rommelsharma.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/rommelsharma.html">Rommel Sharma</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">58</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/vinaykumarsarda.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/vinaykumarsarda.html">SARDA VINAY KUMAR</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">59</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/singhshashi.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/singhshashi.html">Shashi Shekhar Singh</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">60</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/simpsade.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/simpsade.html">Shruti Ranade</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">61</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/sidkashyap.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/sidkashyap.html">Sidharth N Kashyap</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">62</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/smitasasindran.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/smitasasindran.html">Smita Sasindran</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">63</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/som.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/som.html">Somanath</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">64</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/suiki.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/suiki.html">Sujith Varghese</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">65</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/sunuengineer.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/sunuengineer.html">Sunu Engineer</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">66</div>
+      </div><div class="span3 participant">
+        <a href="../supreeth.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="../supreeth.html">Supreeth Srinivasamurthy</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">67</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/surapanenishivakrishna.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/surapanenishivakrishna.html">surapanenishivakrishna</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">68</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/swaroop.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/swaroop.html">Swaroop Krothapalli</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">69</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/t3rmin4t0r.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/t3rmin4t0r.html">t3rmin4t0r</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    3 Projects
+                  
+                </em>
+                <ul><li class="project-color-tab project-num1"><a href="http://hacknight.in/fifthelephant/2013-hadoop/projects/1-hadoop-9335-including-unix-like-sort-options-for-ls-shell-command.html" title="[HADOOP-9335] Including UNIX like sort options for ls shell command "> </a></li>
+                  <li class="project-color-tab project-num2"><a href="http://hacknight.in/fifthelephant/2013-hadoop/projects/2-bloom-filter-pushdown-predicates-for-hives-map-joins.html" title="Bloom filter pushdown predicates for hive&#39;s map-joins"> </a></li>
+                  <li class="project-color-tab project-num3"><a href="http://hacknight.in/fifthelephant/2013-hadoop/projects/3-hadoop-job-helpers-for-go-lang.html" title="Hadoop job helpers for Go-lang"> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">70</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/sairangan.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/sairangan.html">V. Sairanganath</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">71</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/vaishnavi-verma.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/vaishnavi-verma.html">Vaishnavi Verma</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">72</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/varundhussa.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/varundhussa.html">Varun Dhussa</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    1 Project
+                  
+                </em>
+                <ul><li class="project-color-tab project-num2"><a href="http://hacknight.in/fifthelephant/2013-hadoop/projects/2-bloom-filter-pushdown-predicates-for-hives-map-joins.html" title="Bloom filter pushdown predicates for hive&#39;s map-joins"> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">73</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/ksvarun.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/ksvarun.html">Varun Kulkarni</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">74</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/varunt.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/varunt.html">Varun Torka</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">75</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/vin.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/vin.html">Vinayak Hegde</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">76</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/vipulmathur.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/vipulmathur.html">Vipul Mathur</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">77</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/vishnur.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/vishnur.html">Vishnu V Ram</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">78</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/sachwani.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/sachwani.html">Yogesh Sachwani</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">79</div>
+      </div>
+</div>
+      <br />
+      
+        <h3 class="h3-title">Other Participants</h3>
+        <div class="row"><div class="span3 participant">
+        <a href="http://hacknight.in/madalgorithmist.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/madalgorithmist.html">abhijit mondal</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">1</div>
+      </div><div class="span3 participant">
+        <a href="../sagarun.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="../sagarun.html">Arun S A G</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">2</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/bish.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/bish.html">Bishan Singh Kochher</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">3</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/calvinscorner.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/calvinscorner.html">Chintan Parekh</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    1 Project
+                  
+                </em>
+                <ul><li class="project-color-tab project-num1"><a href="http://hacknight.in/fifthelephant/2013-hadoop/projects/1-hadoop-9335-including-unix-like-sort-options-for-ls-shell-command.html" title="[HADOOP-9335] Including UNIX like sort options for ls shell command "> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">4</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/rockkiddeepesh.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/rockkiddeepesh.html">Deepesh Shetty</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">5</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/shettydeepesh412.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/shettydeepesh412.html">Deepesh Shetty</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">6</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/iliyasshirol.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/iliyasshirol.html">Iliyas Shirol</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">7</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/krishnakalyan3.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/krishnakalyan3.html">Krishna</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">8</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/f13mash.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/f13mash.html">mahesh gondi</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">9</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/fatbabyin.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/fatbabyin.html">Manasvi Gupta</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">10</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/pankajk83.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/pankajk83.html">PANKAJ</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">11</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/rameshnp2002.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/rameshnp2002.html">Ramesh</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">12</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/r4njeet.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/r4njeet.html">Ranjeet Kumar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">13</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/satya-analyst.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/satya-analyst.html">sathya narayana Raju</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">14</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/sawani.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/sawani.html">Sawani Bade</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">15</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/shrikanth.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/shrikanth.html">shrikanth</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">16</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/techinsane.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/techinsane.html">Sugandha Naolekar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">17</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/suntracks.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/suntracks.html">Sundar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">18</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/thamizh.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/thamizh.html">thamizhannal</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">19</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/umayalavarthy.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/umayalavarthy.html">Uma Maheswararao</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">20</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/vsnitdgp.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/vsnitdgp.html">Vikas Singh</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">21</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/yashs360.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/yashs360.html">Yash - ConfusedCoder</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">22</div>
+      </div>
+</div>
+      
+    </div>
+    <div class="tab-pane" id="projects">
+      <div class="project-cards">
+        <ul class="cardset light-bg row">
+          
+            <li class="span3">
+              <a class="project-num4" href="http://hacknight.in/fifthelephant/2013-hadoop/projects/4-log-analysis-using-mapreduce-and-pig.html">
+                <div class="card-title">
+                  <h2>Log Analysis using mapreduce and Pig</h2>
+                </div>
+                <div class="member-count">
+                  
+                    3 members
+                </div>
+                <div class="card-body">
+                   Preventive report generation based on log analysis
+                </div>
+              </a>
+            </li>
+          
+            <li class="span3">
+              <a class="project-num3" href="http://hacknight.in/fifthelephant/2013-hadoop/projects/3-hadoop-job-helpers-for-go-lang.html">
+                <div class="card-title">
+                  <h2>Hadoop job helpers for Go-lang</h2>
+                </div>
+                <div class="member-count">
+                  
+                    1 member
+                  
+                </div>
+                <div class="card-body">
+                  Write hadoop tasks in Go to do your processing and run them within a cluster
+                </div>
+              </a>
+            </li>
+          
+            <li class="span3">
+              <a class="project-num2" href="http://hacknight.in/fifthelephant/2013-hadoop/projects/2-bloom-filter-pushdown-predicates-for-hives-map-joins.html">
+                <div class="card-title">
+                  <h2>Bloom filter pushdown predicates for hive&#39;s map-joins</h2>
+                </div>
+                <div class="member-count">
+                  
+                    2 members
+                </div>
+                <div class="card-body">
+                  Improve hive&#39;s performance at processing left outer joins for queries
+                </div>
+              </a>
+            </li>
+          
+            <li class="span3">
+              <a class="project-num1" href="http://hacknight.in/fifthelephant/2013-hadoop/projects/1-hadoop-9335-including-unix-like-sort-options-for-ls-shell-command.html">
+                <div class="card-title">
+                  <h2>[HADOOP-9335] Including UNIX like sort options for ls shell command </h2>
+                </div>
+                <div class="member-count">
+                  
+                    2 members
+                </div>
+                <div class="card-body">
+                  hadoop fs -ls is very limited today supporting no native sort options
+                </div>
+              </a>
+            </li>
+          
+          <div class="mob-seperator">
+            <br />
+          </div>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+    <div class="box-border"><div id="map" class="event-map"></div></div>
+  
+
+
+
+        </div>
+      <!-- /container -->
+      <div id="root_footer"></div>
+    </div>
+    <!-- /root -->
+    <footer>
+        <div class="footer-inner">
+          <div class="container">
+            <span class="no-print">Copyright &copy; 2010-15 HasGeek</span>
+          </div>
+        </div>
+      </footer>
+
+  <script src="../_baseframe/js/modernizr.min.js"></script>
+  <!-- Included JS Files -->
+  <!--[if lt IE 9]>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      if (typeof jQuery === 'undefined')
+        document.write('<script type="text/javascript" src="/_baseframe/js/jquery-1.11.2.min.js"><\/script>');
+    </script>
+  <![endif]-->
+  <!--[if gte IE 9]><!-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script type="text/javascript">
+        if (typeof jQuery === 'undefined')
+          document.write('<script type="text/javascript" src="../_baseframe/js/jquery-2.1.3.min.js"><\/script>');
+      </script>
+  <!--<![endif]-->
+  
+  <script type="text/javascript" src="../static/js/baseframe-packed.js"></script><script type="text/javascript" src="../_baseframe/js/leaflet.js"></script><script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', "UA-19123154-24", 'auto');
+      // Track Device Pixel Ratio
+      var pixelRatio = window.getDevicePixelRatio();
+      ga('set', 'metric1', pixelRatio);
+      ga('set', 'dimension1', "event_view");
+      ga('send', 'pageview');
+    </script>
+<script>
+
+
+
+
+</script>
+
+<script type="text/javascript">
+  $(function() {
+    
+      var map = new L.Map('map');
+
+      //BC9A493B41014CAABB98F0471D759707
+      var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/0cb2761ce981414391f2941dd891892c/999/256/{z}/{x}/{y}.png',
+        subDomains = ['a','b','c'],
+        cloudmadeAttrib = '<a href="http://maps.cloudmade.com" target="_blank">CloudMade</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
+      var cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttrib, subdomains: subDomains});
+      var venue = new L.LatLng(12.96470, 77.63750); // geographical point (longitude and latitude)
+      map.setView(venue, 16).addLayer(cloudmade);
+
+      var venue_marker = new L.Marker(venue);
+      map.addLayer(venue_marker);
+      venue_marker.bindPopup('Centre for Internet and Society').openPopup();
+      map.scrollWheelZoom.disable();
+
+      map.on('zoomend', onZoomend);
+      function onZoomend(){
+          map.setView(venue, map.getZoom());
+      };
+    
+    // When admin clicks on sync, do POST.
+    $(".sync").on('click', function(e){
+      e.preventDefault();
+      $("#sync_form").submit();
+    });
+  });
+  </script>
+
+
+</body>
+</html>

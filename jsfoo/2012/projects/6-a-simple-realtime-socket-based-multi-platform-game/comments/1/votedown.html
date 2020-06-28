@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js no-userlogin"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Login — HasGeek Auth</title>
+    <meta name="DC.title" content="Login" />
+    <meta property="og:title" content="Login" />
+  <meta name="description" content="" />
+  <meta property="og:description" content="" />
+  <meta name="author" href="/humans.txt" />
+  <meta name="csrf-token" content="ImMxM2Y4MTQ3NWViNTE0ODI1ZmQ4ZTBjNjA3MjJkZjFkZjZiNGM5ZGEi.XnwnxA.vRRtPACNMKMiH3uTD57z8y8kFT0" />
+  
+  <link rel="icon" href="https://auth.hasgeek.com/favicon.ico" />
+    <link rel="canonical" href="https://hacknight.in/apigee/apithon-dec-2013/apply.html" />
+    <meta property="og:url" content="https://auth.hasgeek.com/login" />
+    <link rel="image_src" href="https://auth.hasgeek.com/_baseframe/img/logo-large.png" />
+    <meta property="og:image" content="https://auth.hasgeek.com/_baseframe/img/logo-large.png" />
+  <meta name="referrer" content="always" />
+
+  <!-- Included CSS Files -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://static.hasgeek.co.in/static/gen/baseframe-mui-css.css?2c1e85ca" />
+  <link rel="stylesheet" type="text/css" href="https://auth.hasgeek.com/static/css/baseframe-packed.css?ec618520" />
+    
+  
+</head>
+
+<body class="mui--bg-primary">
+  <div id="root">
+      <!-- headerbox -->
+      
+
+      <header class="header header--fixed mui--z1" id="js-header">
+          <div class="mui-container">
+            
+  
+  <nav id="hgnav" class="header__nav" role="navigation">
+    <div class="header__site-title header__site-title--smaller">
+      
+      <div class="header__site-title__title">
+    <div class="page-header">
+      <a href="https://auth.hasgeek.com/" title="HasGeek Auth" class="mui--text-light">HasGeek Auth</a>
+    </div>
+  </div>
+    </div>
+    <div class="header__right-nav header__right-nav--larger">
+      <ul class="header__nav-list">
+
+        
+        <li class="mui-dropdown header__nav-list__item">
+          
+  
+    
+    <a class="header__app-icon" data-mui-toggle="dropdown" role="button" aria-expanded="false" aria-label="Apps">
+      <i class="material-icons" aria-hidden="true">apps</i>
+    </a>
+    <ul class="mui-dropdown__menu mui-dropdown__menu--right" role="menu">
+      <li class="mui--text-center">
+        <a href="http://hasgeek.com" aria-label="HasGeek">
+          <img src="https://hasgeek.com/static/img/hg-banner.png" class="header__dropdown-app-img">
+          <h6 class="header__dropdown-app-title">HasGeek</h6>
+        </a>
+      </li>
+      <li class="mui--text-center">
+        <a href="https://hasjob.co/" aria-label="Hasjob">
+          <img src="https://static.hasjob.co/static/img/hasjob-logo-200x200.png" class="header__dropdown-app-img">
+          <h6 class="header__dropdown-app-title">Hasjob</h6>
+        </a>
+      </li>
+      <li class="mui--text-center">
+        <a href="https://hasgeek.tv/" aria-label="HGTV">
+          <img src="https://static.hasgeek.co.in/static/img/hgnav/hg_hgtv.png" class="header__dropdown-app-img">
+          <h6 class="header__dropdown-app-title">HGTV</h6>
+        </a>
+      </li>
+    </ul>
+  
+        </li>
+        
+
+        
+        <li class="mui-dropdown header__nav-list__item">
+          
+  
+    <a href="https://hacknight.in/apigee/apithon-dec-2013/apply.html" class='mui-btn mui-btn--primary mui-btn--small mui-btn--raised header__button' id="hg-login-btn">Login or sign up</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+          </div>
+        </header>
+      <!-- /headerbox -->
+
+      <div class="content-wrapper">
+        <div class="main-content ">
+          
+  
+
+            <div class="mui-container">
+    
+  
+  <div class="page-content">
+    
+    <div class="grid">
+      <div class="grid__col-xs-12">
+        
+  <div class="alert alert--error cookies-required-alert test alert--dismissable">
+    <a class="alert__close" href="javascript:void(0);" aria-label="close"><i class="material-icons">clear</i></a>
+    <p class="alert__text">Cookies are required to login. Please enable cookies in your browser’s settings and reload this page.</p>
+  </div>
+  <div class="cookies-required mui-form mui-form--margins">
+    <div><h2>Login with your existing account at any of these <small>(pick one)</small></h2></div>
+    <div>
+      <p>
+      
+        <a class="mui-btn mui-btn--small mui-btn--primary mui-btn--default login-twitter" href="https://auth.hasgeek.com/login/twitter"><img src="https://auth.hasgeek.com/static/oauth/img/twitter.png" class="icon-img" alt="Twitter"/></i> Twitter</a>
+      
+        <a class="mui-btn mui-btn--small mui-btn--primary mui-btn--default login-google" href="https://auth.hasgeek.com/login/google"><img src="https://auth.hasgeek.com/static/oauth/img/google.png" class="icon-img" alt="Google"/></i> Google</a>
+      
+        <a class="mui-btn mui-btn--small mui-btn--primary mui-btn--default login-linkedin optional jshidden" href="https://auth.hasgeek.com/login/linkedin"><img src="https://auth.hasgeek.com/static/oauth/img/linkedin.png" class="icon-img" alt="LinkedIn"/></i> LinkedIn</a>
+      
+        <a class="mui-btn mui-btn--small mui-btn--primary mui-btn--default login-github optional jshidden" href="https://auth.hasgeek.com/login/github"><img src="https://auth.hasgeek.com/static/oauth/img/github.png" class="icon-img" alt="GitHub"/></i> GitHub</a>
+      
+        <a class="mui-btn mui-btn--small mui-btn--flat mui-btn--accent caption no-jshidden" id="showmore" href="https://hacknight.in/apigee/apithon-dec-2013/apply.html#">Show more...</a>
+      </p>
+    </div>
+    <div id="passwordform" class="jshidden">
+      <h2 class="passwordform-heading">Or, login with your HasGeek password</h2>
+      <div class="grid__col-xs-12 grid__col-md-6 grid__col--bleed">
+        
+  <form id="passwordlogin" method="POST" class="mui-form mui-form--margins" accept-charset="UTF-8">
+    <input type="hidden" name="form.id" value="passwordlogin"/>
+    <input id="csrf_token" name="csrf_token" type="hidden" value="ImMxM2Y4MTQ3NWViNTE0ODI1ZmQ4ZTBjNjA3MjJkZjFkZjZiNGM5ZGEi.XnwnxA.vRRtPACNMKMiH3uTD57z8y8kFT0">
+    
+      
+    
+    
+    <div class="mui-form__fields" id="field-username">
+        <div class="mui-form__controls">
+            <div class="mui-textfield mui-textfield--float-label">
+              <input autocapitalize="none" autocorrect="none" autofocus class="field-username " data-parsley-required="true" data-parsley-trigger="change focusout" id="username" name="username" required tabindex="1" type="text" value="">
+                <label>Username or Email</label>
+            </div>
+            <span class="mui-form__sidetext"><a href="https://auth.hasgeek.com/register">Create a new account?</a></span>
+          
+        </div>
+    </div>
+    
+    <div class="mui-form__fields" id="field-password">
+        <div class="mui-form__controls">
+            <div class="mui-textfield mui-textfield--float-label">
+              <input class="field-password " data-parsley-required="true" data-parsley-trigger="change focusout" id="password" name="password" required tabindex="2" type="password" value="">
+                <label>Password</label>
+            </div>
+            <span class="mui-form__sidetext"><a href="https://auth.hasgeek.com/reset">Forgot password?</a></span>
+          
+        </div>
+    </div>
+    <div class="mui-form form-actions clearfix">
+  <div>
+    <button type="submit" class="mui-btn mui-btn--raised   mui-btn--raised mui-btn--primary" tabindex="3" >Login</button>
+    
+    
+    <span class="loading mui--hide">&nbsp;</span>
+    
+  </div>
+</div>
+  </form>
+
+      </div>
+    </div>
+  </div>
+
+      </div>
+    </div>
+    
+  </div>
+
+            </div>
+          
+        </div>
+      </div>
+
+      <div id="root_footer"></div>
+    </div>
+
+  <footer class="footer">
+      <div class="footer__container">
+        <span class="no-print">Copyright &copy; 2010-19 <a href="http://hasgeek.com/">HasGeek</a>. Powered by <a href="https://github.com/hasgeek/lastuser" title="GitHub project page">Lastuser</a>, open source software from <a href="https://github.com/hasgeek">HasGeek</a>.</span>
+          
+      </div>
+    </footer>
+
+  <script src="https://auth.hasgeek.com/_baseframe/js/modernizr.min.js"></script>
+  <!-- Included JS Files -->
+  <!--[if lt IE 9]>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      if (typeof jQuery === 'undefined')
+        document.write('<script type="text/javascript" src="/_baseframe/js/jquery-1.11.2.min.js"><\/script>');
+    </script>
+  <![endif]-->
+  <!--[if gte IE 9]><!-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script type="text/javascript">
+        if (typeof jQuery === 'undefined')
+          document.write('<script type="text/javascript" src="https://auth.hasgeek.com/_baseframe/js/jquery-2.1.3.min.js"><\/script>');
+      </script>
+  <!--<![endif]-->
+    <script type="text/javascript" src="https://static.hasgeek.co.in/static/gen/baseframe-mui-js.js?f9dd1d30"></script>
+    <script type="text/javascript" src="https://static.hasgeek.co.in/static/gen/jquery-cookie-js.js?45daa734"></script>
+    <script type="text/javascript" src="https://static.hasgeek.co.in/static/gen/timezone-js.js?b304360f"></script>
+  
+  <script type="text/javascript" src="https://auth.hasgeek.com/static/js/baseframe-packed.js?dcdf5e64"></script><script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', "UA-19123154-13", 'auto');
+      // Track Device Pixel Ratio
+      var pixelRatio = window.getDevicePixelRatio();
+      ga('set', 'metric1', pixelRatio);
+      ga('set', 'dimension1', "lastuser_oauth.login");
+      ga('send', 'pageview');
+    </script>
+    
+  
+    <script type="text/javascript">
+      $(function() {
+        $("#passwordlogin").ajaxForm({
+          target: '#passwordlogin',
+          replaceTarget: true,
+          beforeSubmit: function(formdata, form, options) {
+            form.find('input[type="submit"]').prop('disabled', true).addClass('submit-disabled');
+            form.find('button[type="submit"]').prop('disabled', true).addClass('submit-disabled');
+            form.find('.loading').removeClass('mui--hide');
+            return true;
+          },
+          error: function(context, xhr, status, errMsg) {
+            var form = $("#passwordlogin");
+            form.find('input[type="submit"]').prop('disabled', false).removeClass('submit-disabled');
+            form.find('button[type="submit"]').prop('disabled', false).removeClass('submit-disabled');
+            form.find('.loading').addClass('mui--hide');
+            form.append('<div class="alert alert--error"><a class="alert__close" href="javascript:void(0);" aria-label="close"><i class="material-icons">clear</i></a><p class="alert__text"><i class="material-icons alert__icon">error</i> An error occured when submitting the form</p></div>');
+          } // No comma or semicolon here
+        });
+      });
+    </script>
+  <script type="text/javascript">
+    $(function() {
+      $("#form-openid").hide().removeClass('jshidden');
+      $("#passwordform").removeClass('jshidden').hide();
+      $(".mui-btn.optional").hide().removeClass('jshidden');
+      $(".login-openid").click(function() {
+        $("#form-openid").fadeToggle();
+        $("#openid").focus();
+        return false;
+      });
+      $("#showmore").click(function() {
+        $("#showmore").hide();
+        $(".mui-btn.optional").fadeToggle();
+        $("#passwordform").fadeIn();
+        $("#username").focus();
+        return false;
+      });
+    });
+  </script>
+
+  
+</body>
+</html>

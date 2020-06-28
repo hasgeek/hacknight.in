@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js no-userlogin"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Pothole snapper app &mdash; Droidcon &amp; JSFoo Hackday — Hacknight</title>
+    <meta name="DC.title" content="Pothole snapper app &mdash; Droidcon &amp; JSFoo Hackday" />
+    <meta property="og:title" content="Pothole snapper app &mdash; Droidcon &amp; JSFoo Hackday" />
+  <meta name="description" content="" />
+  <meta property="og:description" content="" />
+  <meta name="author" href="/humans.txt" />
+  <meta name="csrf-token" content="ImY2ZTkyMWRhOTQ5YzA0YWQwZTRlZjAxYjhjNDk3NWViYWUxNDBkYzki.XnwnfA.6bR3A73ep914n0g3K9dED2-UcUQ" />
+  
+  <link rel="icon" href="https://hacknight.in/favicon.ico" />
+    <link rel="canonical" href="3-pothole-snapper-app.html" />
+    <meta property="og:url" content="https://hacknight.in/droidconin/2013-droidcon-jsfoo/projects/3-pothole-snapper-app" />
+  <!-- Overriding so that facebook can pickup hacknight logo rather than HasGeek logo-->
+  <!-- http://stackoverflow.com/questions/1138460/how-does-facebook-sharer-select-images -->
+  <link rel="image_src" href="https://hacknight.in/static/img/hacknightlogo.png" />
+  <meta property="og:image" content="/static/img/hacknightlogo.png" />
+  <meta name="referrer" content="always" />
+
+  <!-- Included CSS Files -->
+  <link rel="stylesheet" type="text/css" href="https://hacknight.in/static/css/baseframe-packed.css" /><link rel="stylesheet" type="text/css" href="https://hacknight.in/_baseframe/css/leaflet.css" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic,600italic,400,600" />
+</head>
+<body>
+  <div id="root">
+      <!-- headerbox -->
+      
+  <header>
+    <div id="hg-bar" class="no-print hg-dark">
+    <div class="container">
+          <ul id="hg-barlinks">
+            
+    <li id="hg-networkbar-home" class="strong"><a href="https://hasgeek.com/">HasGeek</a></li>
+    <li id="hg-networkbar-hasjob"><a href="https://hasjob.co/">Hasjob</a></li>
+    <li id="hg-networkbar-hgtv"><a href="https://hasgeek.tv/">HGTV</a></li>
+    <li id="hg-networkbar-talkfunnel"><a href="https://talkfunnel.com/">Talkfunnel</a></li>
+    <li id="hg-networkbar-events"><a href="3-pothole-snapper-app.html#" class="hg-submenu">Events</a>
+        <ul>
+          
+    <li id="hg-networkbar-metarefresh"><a href="https://metarefresh.in/">Meta Refresh</a></li>
+    <li id="hg-networkbar-rootconf"><a href="https://rootconf.in/">Rootconf</a></li>
+    <li id="hg-networkbar-fifthelephant"><a href="https://fifthelephant.in/">The Fifth Elephant</a></li>
+    <li id="hg-networkbar-jsfoo"><a href="https://jsfoo.in/">JSFoo</a></li>
+    <li id="hg-networkbar-droidcon"><a href="https://droidcon.in/">Droidcon India</a></li>
+    <li id="hg-networkbar-pastevents" class="hg-menu-section">Past events</li>
+    <li id="hg-networkbar-angularjs-miniconf"><a href="https://metarefresh.in/2014/angularjs-miniconf">AngularJS Miniconf</a></li>
+    <li id="hg-networkbar-cartonama"><a href="https://cartonama.com/2012">Cartonama Conference</a></li>
+    <li id="hg-networkbar-phpcloud"><a href="https://phpcloud.hasgeek.com/">Scaling PHP in the Cloud</a></li>
+    <li id="hg-networkbar-androidcamp"><a href="https://androidcamp.hasgeek.com/">AndroidCamp</a></li>
+    <li id="hg-networkbar-doctypehtml5"><a href="http://www.doctypehtml5.in/">DocType HTML5</a></li>
+        </ul></li>
+          </ul>
+        <ul id="hg-usertools">
+          
+            <li><a href="https://hacknight.in/login.html">Login or sign up</a></li>
+        </ul>
+            
+  <iframe height="0" width="0" tabindex="-1" style="display: none; border: 0; height: 0; width: 0" aria-hidden="true" role="presentation" src="https://auth.hasgeek.com/?client_id=th55APk8Q-yApn-fQ3Ah-Q&amp;login_url=https://hacknight.in/login"></iframe>
+
+    </div>
+  </div>
+    <div id="page-header-inner">
+      <div class="container">
+        <div class="row">
+          <div class="span10 logo">
+              <a href="https://hacknight.in/index.html" title="Home">
+              <img id="inner-page-logo" src="https://hacknight.in/static/img/hacknightlogo-small.png" alt="Hacknight">
+            </a>
+          </div>
+          <!--<div class="span2 home-buttons" id="start-btn-after-login">
+            
+              <a href="/login" class="btn btn-primary" id="create" title="Create your event">Start a hacknight</a>
+            
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </header>
+
+      <!-- /headerbox -->
+
+      
+        <div class="container" id="main-content">
+    
+  
+  
+  <div class="row">
+    <div class="span9">
+      <div class="row">
+        <div class="span1 centered voting"><a class="votechoice" title="Vote up" href="https://hacknight.in/fifthelephant/bangalore2012/projects/12-reddit-recommender/votedown.html"><i class="icon-caret-up"></i></a>
+
+            <div class="votecount">+12</div>
+
+            <a class="votechoice" title="Vote down" href="https://hacknight.in/fifthelephant/bangalore2012/projects/12-reddit-recommender/votedown.html"><i class="icon-caret-down"></i></a>
+        </div>
+        <div class="span8">
+          <div class="page-header">
+            <h3><a href="../../../droidconin.1.html">droidconIN</a><i class="icon-caret-right"></i><a href="https://hacknight.in/droidconin/2013-droidcon-jsfoo.html">Droidcon &amp; JSFoo Hackday</a><i class="icon-caret-right"></i></h3>
+            <h1>Pothole snapper app</h1>
+          </div>
+          <div class="text"><p>We all hate Bangalore roads. What can we do about it? Well, the political ramifications of getting BBMP to move their behinds to fix the roads may be beyond technology magic, but we might be able to do something to raise more awareness.</p>
+<p>Lets build an Android app + Web app that lets people quickly  snap a pothole (optionally add location tags), a short blurb, and post it to a public community feed.</p>
+<p>A separate visualization would let you look at areas of the city with the most potholes (or with the most votes(?))</p>
+<p>So anyways, this is the gist of the idea - more at the hackday.</p></div>
+        </div>
+        <hr />
+      </div>
+      <div class="row">
+        <div class="span9">
+          <h3 class="h3-title">Project Members</h2>
+          <ul class="userset row">
+            
+              <li class="span2">
+                <a href="../../../aditya-shankar.html"><i class="icon-user"></i><br>Aditya Shankar</a>
+              </li>
+            
+              <li class="span2">
+                <a href="../../../vishnuratheesh.html"><i class="icon-user"></i><br>Vishnu Ratheesh</a>
+              </li>
+            
+              <li class="span2">
+                <a href="../../../krthkv.html"><i class="icon-user"></i><br>Karthik Viswanathan</a>
+              </li>
+            
+              <li class="span2">
+                <a href="../../../mvnpavan.html"><i class="icon-user"></i><br>mvnpavan kumar</a>
+              </li>
+            
+              <li class="span2">
+                <a href="../../../arg0s.html"><i class="icon-user"></i><br>Aravind Krishnaswamy</a>
+              </li>
+            
+              <li class="span2">
+                <a href="../../../shrayas.html"><i class="icon-user"></i><br>Shrayas Rajagopal</a>
+              </li>
+            
+              <li class="span2">
+                <a href="../../../tausifah.html"><i class="icon-user"></i><br>Tausif Ahmed</a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span9">
+          <div class="section">
+            <h3 class="h3-title" id="comments">Comments</h3>
+            
+              <ul class="comments">
+                
+  <li class="comment">
+    <div id="c1">
+      <div class=""> 
+
+        <div class="left-box">
+          <a href="../../../shrayas.html">
+            <div class="commenter-img">
+              <i class="icon-user icon-3x"></i>
+            </div><!-- /commenter-img -->
+          </a>
+        </div><!-- /left-box -->
+        
+        <div class="comment-text">
+          <div class="com-header">
+            <span class="commenter"><a class="commenter-name" href="../../../shrayas.html">Shrayas Rajagopal</a></span>
+
+              
+
+              <span class="dot">&middot;</span>
+              <span class="com-date">
+              Sat, 14 Sep
+              </span>
+              <a class="collapse" href="3-pothole-snapper-app.html#"><i class="icon-caret-up"></i></a><a class="uncollapse hidden" href="3-pothole-snapper-app.html#"><i class="icon-caret-down"></i></a>
+            <br />
+          </div><!-- /com-header -->
+          <br />
+          <div class="com-body">
+            <div>
+            <p>Sounds really cool ! :) Lets do our part to help this infested city of ours</p>
+            </div>
+            <div data-id="1" class="com-footer">
+              <div class="com-vote">
+  <div class="comment-vote"><a class="comment-vote-up" title="Vote up" href="3-pothole-snapper-app/comments/1/voteup.html"><i class="icon-chevron-up"></i></a>
+      <span class="count">4</span>
+      <a class="comment-vote-down" title="Vote down" href="3-pothole-snapper-app/comments/1/votedown.html"><i class="icon-chevron-down"></i></a>
+  </div>
+
+              </div>
+
+              
+                <span class="dot">&middot;</span><a title="Reply" class="comment-reply" href="3-pothole-snapper-app.html#c1">reply</a>
+                
+
+              <span class="dot">&middot;</span><a title="Permalink" class="comment-permalink" href="3-pothole-snapper-app.html#c1">link</a>
+              
+            </div>
+          </div>
+        </div>
+      
+    
+    </div>
+    </div>
+  </li>
+
+  <li class="comment">
+    <div id="c2">
+      <div class=""> 
+
+        <div class="left-box">
+          <a href="../../../gauravl.html">
+            <div class="commenter-img">
+              <i class="icon-user icon-3x"></i>
+            </div><!-- /commenter-img -->
+          </a>
+        </div><!-- /left-box -->
+        
+        <div class="comment-text">
+          <div class="com-header">
+            <span class="commenter"><a class="commenter-name" href="../../../gauravl.html">Gaurav Lochan</a></span>
+
+              
+
+              <span class="dot">&middot;</span>
+              <span class="com-date">
+              Wed, 18 Sep
+              </span>
+              <a class="collapse" href="3-pothole-snapper-app.html#"><i class="icon-caret-up"></i></a><a class="uncollapse hidden" href="3-pothole-snapper-app.html#"><i class="icon-caret-down"></i></a>
+            <br />
+          </div><!-- /com-header -->
+          <br />
+          <div class="com-body">
+            <div>
+            <p>can i suggest an enhancement - use the accelerometer when driving - and detect potholes.   But it may need some math to figure out what exactly is a pothole.  What do you think?</p>
+            </div>
+            <div data-id="2" class="com-footer">
+              <div class="com-vote">
+  <div class="comment-vote"><a class="comment-vote-up" title="Vote up" href="3-pothole-snapper-app/comments/2/voteup.html"><i class="icon-chevron-up"></i></a>
+      <span class="count">2</span>
+      <a class="comment-vote-down" title="Vote down" href="3-pothole-snapper-app/comments/2/votedown.html"><i class="icon-chevron-down"></i></a>
+  </div>
+
+              </div>
+
+              
+                <span class="dot">&middot;</span><a title="Reply" class="comment-reply" href="3-pothole-snapper-app.html#c2">reply</a>
+                
+
+              <span class="dot">&middot;</span><a title="Permalink" class="comment-permalink" href="3-pothole-snapper-app.html#c2">link</a>
+              
+            </div>
+          </div>
+        </div>
+      
+    
+      <ul class="com-children">
+        
+  <li class="comment">
+    <div id="c3">
+      <div class=""> 
+
+        <div class="left-box">
+          <a href="../../../arg0s.html">
+            <div class="commenter-img">
+              <i class="icon-user icon-3x"></i>
+            </div><!-- /commenter-img -->
+          </a>
+        </div><!-- /left-box -->
+        
+        <div class="comment-text">
+          <div class="com-header">
+            <span class="commenter selected"><a class="commenter-name" href="../../../arg0s.html">Aravind Krishnaswamy</a></span>
+
+               <i class="icon-share-alt"></i>Gaurav Lochan 
+
+              <span class="dot">&middot;</span>
+              <span class="com-date">
+              Wed, 18 Sep
+                <!--(edit Wed, 18 Sep)-->
+                <i class="icon-pencil" title="edited Wed, 18 Sep"></i>
+              </span>
+              <a class="collapse" href="3-pothole-snapper-app.html#"><i class="icon-caret-up"></i></a><a class="uncollapse hidden" href="3-pothole-snapper-app.html#"><i class="icon-caret-down"></i></a>
+            <br />
+          </div><!-- /com-header -->
+          <br />
+          <div class="com-body">
+            <div>
+            <p>Neat idea. How do you think the math would work? We'd need to distinguish someone slowing down for a pothole from a speedbreaker. Also, many people drive around the potholes to avoid them, and it may be hard to differentiate that from someone just avoiding other vehicles.  Thoughts?</p>
+            </div>
+            <div data-id="3" class="com-footer">
+              <div class="com-vote">
+  <div class="comment-vote"><a class="comment-vote-up" title="Vote up" href="3-pothole-snapper-app/comments/3/voteup.html"><i class="icon-chevron-up"></i></a>
+      <span class="count">1</span>
+      <a class="comment-vote-down" title="Vote down" href="3-pothole-snapper-app/comments/3/votedown.html"><i class="icon-chevron-down"></i></a>
+  </div>
+
+              </div>
+
+              
+                <span class="dot">&middot;</span><a title="Reply" class="comment-reply" href="3-pothole-snapper-app.html#c3">reply</a>
+                
+
+              <span class="dot">&middot;</span><a title="Permalink" class="comment-permalink" href="3-pothole-snapper-app.html#c3">link</a>
+              <span class="dot">&middot;</span><a title="Parent" class="comment-parent" href="3-pothole-snapper-app.html#c2">parent</a>
+            </div>
+          </div>
+        </div>
+      
+    
+      <ul class="com-children">
+        
+  <li class="comment">
+    <div id="c4">
+      <div class=""> 
+
+        <div class="left-box">
+          <a href="../../../gauravl.html">
+            <div class="commenter-img">
+              <i class="icon-user icon-3x"></i>
+            </div><!-- /commenter-img -->
+          </a>
+        </div><!-- /left-box -->
+        
+        <div class="comment-text">
+          <div class="com-header">
+            <span class="commenter"><a class="commenter-name" href="../../../gauravl.html">Gaurav Lochan</a></span>
+
+               <i class="icon-share-alt"></i>Aravind Krishnaswamy 
+
+              <span class="dot">&middot;</span>
+              <span class="com-date">
+              Wed, 18 Sep
+              </span>
+              <a class="collapse" href="3-pothole-snapper-app.html#"><i class="icon-caret-up"></i></a><a class="uncollapse hidden" href="3-pothole-snapper-app.html#"><i class="icon-caret-down"></i></a>
+            <br />
+          </div><!-- /com-header -->
+          <br />
+          <div class="com-body">
+            <div>
+            <p>It won't be based on the speed, it has to be based on the y-axis.  </p>
+<p>As for driving around, the app could support both modes - the passive accelerometer based approach, and the explicit 'click and report'</p>
+<p>Better still, let's try to have the app report somewhere that action may actually be taken - like, <a href="http://www.ichangemycity.com/complaints" rel="nofollow">http://www.ichangemycity.com/complaints</a>. They don't support pics, but you could pitch the app to them after the event</p>
+            </div>
+            <div data-id="4" class="com-footer">
+              <div class="com-vote">
+  <div class="comment-vote"><a class="comment-vote-up" title="Vote up" href="3-pothole-snapper-app/comments/4/voteup.html"><i class="icon-chevron-up"></i></a>
+      <span class="count">3</span>
+      <a class="comment-vote-down" title="Vote down" href="3-pothole-snapper-app/comments/4/votedown.html"><i class="icon-chevron-down"></i></a>
+  </div>
+
+              </div>
+
+              
+                <span class="dot">&middot;</span><a title="Reply" class="comment-reply" href="3-pothole-snapper-app.html#c4">reply</a>
+                
+
+              <span class="dot">&middot;</span><a title="Permalink" class="comment-permalink" href="3-pothole-snapper-app.html#c4">link</a>
+              <span class="dot">&middot;</span><a title="Parent" class="comment-parent" href="3-pothole-snapper-app.html#c3">parent</a>
+            </div>
+          </div>
+        </div>
+      
+    
+      <ul class="com-children">
+        
+  <li class="comment">
+    <div id="c5">
+      <div class=""> 
+
+        <div class="left-box">
+          <a href="../../../gauravl.html">
+            <div class="commenter-img">
+              <i class="icon-user icon-3x"></i>
+            </div><!-- /commenter-img -->
+          </a>
+        </div><!-- /left-box -->
+        
+        <div class="comment-text">
+          <div class="com-header">
+            <span class="commenter"><a class="commenter-name" href="../../../gauravl.html">Gaurav Lochan</a></span>
+
+               <i class="icon-share-alt"></i>Gaurav Lochan 
+
+              <span class="dot">&middot;</span>
+              <span class="com-date">
+              Wed, 18 Sep
+              </span>
+              <a class="collapse" href="3-pothole-snapper-app.html#"><i class="icon-caret-up"></i></a><a class="uncollapse hidden" href="3-pothole-snapper-app.html#"><i class="icon-caret-down"></i></a>
+            <br />
+          </div><!-- /com-header -->
+          <br />
+          <div class="com-body">
+            <div>
+            <p>ichangemycity even has a category for potholes - <a href="http://www.ichangemycity.com/complaints/all/all/all/roads--footpaths-and-streetlights/potholes-and-manholes#complaints_filter_form" rel="nofollow">http://www.ichangemycity.com/complaints/all/all/all/roads--footpaths-and-streetlights/potholes-and-manholes#complaints_filter_form</a></p>
+<p>They so totally need a mobile app.</p>
+            </div>
+            <div data-id="5" class="com-footer">
+              <div class="com-vote">
+  <div class="comment-vote"><a class="comment-vote-up" title="Vote up" href="3-pothole-snapper-app/comments/5/voteup.html"><i class="icon-chevron-up"></i></a>
+      <span class="count">1</span>
+      <a class="comment-vote-down" title="Vote down" href="3-pothole-snapper-app/comments/5/votedown.html"><i class="icon-chevron-down"></i></a>
+  </div>
+
+              </div>
+
+              
+                <span class="dot">&middot;</span><a title="Reply" class="comment-reply" href="3-pothole-snapper-app.html#c5">reply</a>
+                
+
+              <span class="dot">&middot;</span><a title="Permalink" class="comment-permalink" href="3-pothole-snapper-app.html#c5">link</a>
+              <span class="dot">&middot;</span><a title="Parent" class="comment-parent" href="3-pothole-snapper-app.html#c4">parent</a>
+            </div>
+          </div>
+        </div>
+      
+    
+    </div>
+    </div>
+  </li>
+
+  <li class="comment">
+    <div id="c7">
+      <div class=""> 
+
+        <div class="left-box">
+          <a href="../../../arg0s.html">
+            <div class="commenter-img">
+              <i class="icon-user icon-3x"></i>
+            </div><!-- /commenter-img -->
+          </a>
+        </div><!-- /left-box -->
+        
+        <div class="comment-text">
+          <div class="com-header">
+            <span class="commenter selected"><a class="commenter-name" href="../../../arg0s.html">Aravind Krishnaswamy</a></span>
+
+               <i class="icon-share-alt"></i>Gaurav Lochan 
+
+              <span class="dot">&middot;</span>
+              <span class="com-date">
+              Thu, 19 Sep
+              </span>
+              <a class="collapse" href="3-pothole-snapper-app.html#"><i class="icon-caret-up"></i></a><a class="uncollapse hidden" href="3-pothole-snapper-app.html#"><i class="icon-caret-down"></i></a>
+            <br />
+          </div><!-- /com-header -->
+          <br />
+          <div class="com-body">
+            <div>
+            <p>Cool, should be fun to try this out and see how the math fares. </p>
+<p>You're right - we need to have the data reported translate into some action to close the loop. ichangemycity is an interesting idea.</p>
+            </div>
+            <div data-id="7" class="com-footer">
+              <div class="com-vote">
+  <div class="comment-vote"><a class="comment-vote-up" title="Vote up" href="3-pothole-snapper-app/comments/7/voteup.html"><i class="icon-chevron-up"></i></a>
+      <span class="count">1</span>
+      <a class="comment-vote-down" title="Vote down" href="3-pothole-snapper-app/comments/7/votedown.html"><i class="icon-chevron-down"></i></a>
+  </div>
+
+              </div>
+
+              
+                <span class="dot">&middot;</span><a title="Reply" class="comment-reply" href="3-pothole-snapper-app.html#c7">reply</a>
+                
+
+              <span class="dot">&middot;</span><a title="Permalink" class="comment-permalink" href="3-pothole-snapper-app.html#c7">link</a>
+              <span class="dot">&middot;</span><a title="Parent" class="comment-parent" href="3-pothole-snapper-app.html#c4">parent</a>
+            </div>
+          </div>
+        </div>
+      
+    
+    </div>
+    </div>
+  </li>
+
+      </ul>
+    
+    </div>
+    </div>
+  </li>
+
+      </ul>
+    
+    </div>
+    </div>
+  </li>
+
+      </ul>
+    
+    </div>
+    </div>
+  </li>
+
+  <li class="comment">
+    <div id="c6">
+      <div class=""> 
+
+        <div class="left-box">
+          <a href="../../../rajaramkannan.html">
+            <div class="commenter-img">
+              <i class="icon-user icon-3x"></i>
+            </div><!-- /commenter-img -->
+          </a>
+        </div><!-- /left-box -->
+        
+        <div class="comment-text">
+          <div class="com-header">
+            <span class="commenter"><a class="commenter-name" href="../../../rajaramkannan.html">Rajaram</a></span>
+
+              
+
+              <span class="dot">&middot;</span>
+              <span class="com-date">
+              Thu, 19 Sep
+              </span>
+              <a class="collapse" href="3-pothole-snapper-app.html#"><i class="icon-caret-up"></i></a><a class="uncollapse hidden" href="3-pothole-snapper-app.html#"><i class="icon-caret-down"></i></a>
+            <br />
+          </div><!-- /com-header -->
+          <br />
+          <div class="com-body">
+            <div>
+            <p>It will be interesting to automatically capture and store the Geo location when a pothole is captured or detected.  Then a simple web page can be built out that shows these as markers on a google map. Will be a fun element - like a control room type - for all users to see where the potholes are distributed or concentrated. (We can build a pothole busting game action on top later too :-))</p>
+            </div>
+            <div data-id="6" class="com-footer">
+              <div class="com-vote">
+  <div class="comment-vote"><a class="comment-vote-up" title="Vote up" href="3-pothole-snapper-app/comments/6/voteup.html"><i class="icon-chevron-up"></i></a>
+      <span class="count">2</span>
+      <a class="comment-vote-down" title="Vote down" href="3-pothole-snapper-app/comments/6/votedown.html"><i class="icon-chevron-down"></i></a>
+  </div>
+
+              </div>
+
+              
+                <span class="dot">&middot;</span><a title="Reply" class="comment-reply" href="3-pothole-snapper-app.html#c6">reply</a>
+                
+
+              <span class="dot">&middot;</span><a title="Permalink" class="comment-permalink" href="3-pothole-snapper-app.html#c6">link</a>
+              
+            </div>
+          </div>
+        </div>
+      
+    
+    </div>
+    </div>
+  </li>
+
+  <li class="comment">
+    <div id="c8">
+      <div class=""> 
+
+        <div class="left-box">
+          <a href="../../../gauravl.html">
+            <div class="commenter-img">
+              <i class="icon-user icon-3x"></i>
+            </div><!-- /commenter-img -->
+          </a>
+        </div><!-- /left-box -->
+        
+        <div class="comment-text">
+          <div class="com-header">
+            <span class="commenter"><a class="commenter-name" href="../../../gauravl.html">Gaurav Lochan</a></span>
+
+              
+
+              <span class="dot">&middot;</span>
+              <span class="com-date">
+              Thu, 19 Sep
+              </span>
+              <a class="collapse" href="3-pothole-snapper-app.html#"><i class="icon-caret-up"></i></a><a class="uncollapse hidden" href="3-pothole-snapper-app.html#"><i class="icon-caret-down"></i></a>
+            <br />
+          </div><!-- /com-header -->
+          <br />
+          <div class="com-body">
+            <div>
+            <p>I found this - <a href="https://play.google.com/store/apps/details?id=com.ichangemycityjanaagraha.core" rel="nofollow">https://play.google.com/store/apps/details?id=com.ichangemycityjanaagraha.core</a>.  I'm connecting to janaagraha to see if we can help improve their app.</p>
+            </div>
+            <div data-id="8" class="com-footer">
+              <div class="com-vote">
+  <div class="comment-vote"><a class="comment-vote-up" title="Vote up" href="3-pothole-snapper-app/comments/8/voteup.html"><i class="icon-chevron-up"></i></a>
+      <span class="count">2</span>
+      <a class="comment-vote-down" title="Vote down" href="3-pothole-snapper-app/comments/8/votedown.html"><i class="icon-chevron-down"></i></a>
+  </div>
+
+              </div>
+
+              
+                <span class="dot">&middot;</span><a title="Reply" class="comment-reply" href="3-pothole-snapper-app.html#c8">reply</a>
+                
+
+              <span class="dot">&middot;</span><a title="Permalink" class="comment-permalink" href="3-pothole-snapper-app.html#c8">link</a>
+              
+            </div>
+          </div>
+        </div>
+      
+    
+      <ul class="com-children">
+        
+  <li class="comment">
+    <div id="c9">
+      <div class=""> 
+
+        <div class="left-box">
+          <a href="../../../arg0s.html">
+            <div class="commenter-img">
+              <i class="icon-user icon-3x"></i>
+            </div><!-- /commenter-img -->
+          </a>
+        </div><!-- /left-box -->
+        
+        <div class="comment-text">
+          <div class="com-header">
+            <span class="commenter selected"><a class="commenter-name" href="../../../arg0s.html">Aravind Krishnaswamy</a></span>
+
+               <i class="icon-share-alt"></i>Gaurav Lochan 
+
+              <span class="dot">&middot;</span>
+              <span class="com-date">
+              Thu, 19 Sep
+              </span>
+              <a class="collapse" href="3-pothole-snapper-app.html#"><i class="icon-caret-up"></i></a><a class="uncollapse hidden" href="3-pothole-snapper-app.html#"><i class="icon-caret-down"></i></a>
+            <br />
+          </div><!-- /com-header -->
+          <br />
+          <div class="com-body">
+            <div>
+            <p>Great idea! BTW, if we are contributing, my preference would be that the body of it be open sourced. I suspect they'll be fine with it. What do you think?</p>
+            </div>
+            <div data-id="9" class="com-footer">
+              <div class="com-vote">
+  <div class="comment-vote"><a class="comment-vote-up" title="Vote up" href="3-pothole-snapper-app/comments/9/voteup.html"><i class="icon-chevron-up"></i></a>
+      <span class="count">1</span>
+      <a class="comment-vote-down" title="Vote down" href="3-pothole-snapper-app/comments/9/votedown.html"><i class="icon-chevron-down"></i></a>
+  </div>
+
+              </div>
+
+              
+                <span class="dot">&middot;</span><a title="Reply" class="comment-reply" href="3-pothole-snapper-app.html#c9">reply</a>
+                
+
+              <span class="dot">&middot;</span><a title="Permalink" class="comment-permalink" href="3-pothole-snapper-app.html#c9">link</a>
+              <span class="dot">&middot;</span><a title="Parent" class="comment-parent" href="3-pothole-snapper-app.html#c8">parent</a>
+            </div>
+          </div>
+        </div>
+      
+    
+    </div>
+    </div>
+  </li>
+
+      </ul>
+    
+    </div>
+    </div>
+  </li>
+
+              </ul>
+            
+            <p>
+                <a href="https://hacknight.in/login.html">Login with Twitter or Google to leave a comment &rarr;</a>
+              </p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="span3">
+      <div class="row">
+        <div class="span1 pager-nav"><a href="4-redditflix.html" title="Previous"><i class="icon-chevron-left"></i></a></div>
+        <div class="span1 pager-nav pull-right"><a href="2-make-droidcon-funnel-droid-friendly.html" title="Next"><i class="icon-chevron-right"></i></a></div>
+      </div>
+
+      <ul class="sidebar nav nav-list">
+
+        
+        
+        <li class="nav-header">Project Created by</li>
+        <li><a href="../../../arg0s.html"><span class="icon-user">Aravind Krishnaswamy</span></a></li>
+
+      </ul>
+      <!--<div class="source-files">
+        <div class="row">
+          <div class="span1">
+            <i class="icon-github icon-4x"></i>
+          </div>
+          <div class="span2 source-details">
+            <ul class="nav nav-list">
+              <li class="nav-header">Find Source Files Here..</li>
+              <li><a href="#">Droidcon &amp; JSFoo Hackday</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>-->
+    </div>
+
+  </div>
+
+
+
+        </div>
+      <!-- /container -->
+      <div id="root_footer"></div>
+    </div>
+    <!-- /root -->
+    <footer>
+        <div class="footer-inner">
+          <div class="container">
+            <span class="no-print">Copyright &copy; 2010-15 HasGeek</span>
+          </div>
+        </div>
+      </footer>
+
+  <script src="https://hacknight.in/_baseframe/js/modernizr.min.js"></script>
+  <!-- Included JS Files -->
+  <!--[if lt IE 9]>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      if (typeof jQuery === 'undefined')
+        document.write('<script type="text/javascript" src="/_baseframe/js/jquery-1.11.2.min.js"><\/script>');
+    </script>
+  <![endif]-->
+  <!--[if gte IE 9]><!-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script type="text/javascript">
+        if (typeof jQuery === 'undefined')
+          document.write('<script type="text/javascript" src="https://hacknight.in/_baseframe/js/jquery-2.1.3.min.js"><\/script>');
+      </script>
+  <!--<![endif]-->
+  
+  <script type="text/javascript" src="https://hacknight.in/static/js/baseframe-packed.js"></script><script type="text/javascript" src="https://hacknight.in/_baseframe/js/leaflet.js"></script><script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', "UA-19123154-24", 'auto');
+      // Track Device Pixel Ratio
+      var pixelRatio = window.getDevicePixelRatio();
+      ga('set', 'metric1', pixelRatio);
+      ga('set', 'dimension1', "project_view");
+      ga('send', 'pageview');
+    </script>
+<script type="text/javascript">
+  $(function() {
+    commentsInit("https://hacknight.in/droidconin/2013-droidcon-jsfoo/projects/3-pothole-snapper-app")});
+    </script>
+
+</body>
+</html>

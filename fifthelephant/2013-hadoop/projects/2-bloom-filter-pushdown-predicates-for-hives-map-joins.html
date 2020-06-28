@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js no-userlogin"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Bloom filter pushdown predicates for hive&#39;s map-joins &mdash; Hadoop, MapReduce and friends — Hacknight</title>
+    <meta name="DC.title" content="Bloom filter pushdown predicates for hive&#39;s map-joins &mdash; Hadoop, MapReduce and friends" />
+    <meta property="og:title" content="Bloom filter pushdown predicates for hive&#39;s map-joins &mdash; Hadoop, MapReduce and friends" />
+  <meta name="description" content="" />
+  <meta property="og:description" content="" />
+  <meta name="author" href="/humans.txt" />
+  <meta name="csrf-token" content="ImY2ZTkyMWRhOTQ5YzA0YWQwZTRlZjAxYjhjNDk3NWViYWUxNDBkYzki.Xnwniw.gzoJvMi_JEYhQg-sD5VFmDhEyLM" />
+  
+  <link rel="icon" href="https://hacknight.in/favicon.ico" />
+    <link rel="canonical" href="2-bloom-filter-pushdown-predicates-for-hives-map-joins.html" />
+    <meta property="og:url" content="https://hacknight.in/fifthelephant/2013-hadoop/projects/2-bloom-filter-pushdown-predicates-for-hives-map-joins" />
+  <!-- Overriding so that facebook can pickup hacknight logo rather than HasGeek logo-->
+  <!-- http://stackoverflow.com/questions/1138460/how-does-facebook-sharer-select-images -->
+  <link rel="image_src" href="https://hacknight.in/static/img/hacknightlogo.png" />
+  <meta property="og:image" content="/static/img/hacknightlogo.png" />
+  <meta name="referrer" content="always" />
+
+  <!-- Included CSS Files -->
+  <link rel="stylesheet" type="text/css" href="https://hacknight.in/static/css/baseframe-packed.css" /><link rel="stylesheet" type="text/css" href="https://hacknight.in/_baseframe/css/leaflet.css" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic,600italic,400,600" />
+</head>
+<body>
+  <div id="root">
+      <!-- headerbox -->
+      
+  <header>
+    <div id="hg-bar" class="no-print hg-dark">
+    <div class="container">
+          <ul id="hg-barlinks">
+            
+    <li id="hg-networkbar-home" class="strong"><a href="https://hasgeek.com/">HasGeek</a></li>
+    <li id="hg-networkbar-hasjob"><a href="https://hasjob.co/">Hasjob</a></li>
+    <li id="hg-networkbar-hgtv"><a href="https://hasgeek.tv/">HGTV</a></li>
+    <li id="hg-networkbar-talkfunnel"><a href="https://talkfunnel.com/">Talkfunnel</a></li>
+    <li id="hg-networkbar-events"><a href="2-bloom-filter-pushdown-predicates-for-hives-map-joins.html#" class="hg-submenu">Events</a>
+        <ul>
+          
+    <li id="hg-networkbar-metarefresh"><a href="https://metarefresh.in/">Meta Refresh</a></li>
+    <li id="hg-networkbar-rootconf"><a href="https://rootconf.in/">Rootconf</a></li>
+    <li id="hg-networkbar-fifthelephant"><a href="https://fifthelephant.in/">The Fifth Elephant</a></li>
+    <li id="hg-networkbar-jsfoo"><a href="https://jsfoo.in/">JSFoo</a></li>
+    <li id="hg-networkbar-droidcon"><a href="https://droidcon.in/">Droidcon India</a></li>
+    <li id="hg-networkbar-pastevents" class="hg-menu-section">Past events</li>
+    <li id="hg-networkbar-angularjs-miniconf"><a href="https://metarefresh.in/2014/angularjs-miniconf">AngularJS Miniconf</a></li>
+    <li id="hg-networkbar-cartonama"><a href="https://cartonama.com/2012">Cartonama Conference</a></li>
+    <li id="hg-networkbar-phpcloud"><a href="https://phpcloud.hasgeek.com/">Scaling PHP in the Cloud</a></li>
+    <li id="hg-networkbar-androidcamp"><a href="https://androidcamp.hasgeek.com/">AndroidCamp</a></li>
+    <li id="hg-networkbar-doctypehtml5"><a href="http://www.doctypehtml5.in/">DocType HTML5</a></li>
+        </ul></li>
+          </ul>
+        <ul id="hg-usertools">
+          
+            <li><a href="https://hacknight.in/login.html">Login or sign up</a></li>
+        </ul>
+            
+  <iframe height="0" width="0" tabindex="-1" style="display: none; border: 0; height: 0; width: 0" aria-hidden="true" role="presentation" src="https://auth.hasgeek.com/?client_id=th55APk8Q-yApn-fQ3Ah-Q&amp;login_url=https://hacknight.in/login"></iframe>
+
+    </div>
+  </div>
+    <div id="page-header-inner">
+      <div class="container">
+        <div class="row">
+          <div class="span10 logo">
+              <a href="https://hacknight.in/index.html" title="Home">
+              <img id="inner-page-logo" src="https://hacknight.in/static/img/hacknightlogo-small.png" alt="Hacknight">
+            </a>
+          </div>
+          <!--<div class="span2 home-buttons" id="start-btn-after-login">
+            
+              <a href="/login" class="btn btn-primary" id="create" title="Create your event">Start a hacknight</a>
+            
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </header>
+
+      <!-- /headerbox -->
+
+      
+        <div class="container" id="main-content">
+    
+  
+  
+  <div class="row">
+    <div class="span9">
+      <div class="row">
+        <div class="span1 centered voting"><a class="votechoice" title="Vote up" href="https://hacknight.in/fifthelephant/bangalore2012/projects/12-reddit-recommender/votedown.html"><i class="icon-caret-up"></i></a>
+
+            <div class="votecount">+7</div>
+
+            <a class="votechoice" title="Vote down" href="https://hacknight.in/fifthelephant/bangalore2012/projects/12-reddit-recommender/votedown.html"><i class="icon-caret-down"></i></a>
+        </div>
+        <div class="span8">
+          <div class="page-header">
+            <h3><a href="../../../fifthelephant.1.html">The Fifth Elephant</a><i class="icon-caret-right"></i><a href="https://hacknight.in/fifthelephant/2013-hadoop.html">Hadoop, MapReduce and friends</a><i class="icon-caret-right"></i></h3>
+            <h1>Bloom filter pushdown predicates for hive&#39;s map-joins</h1>
+          </div>
+          <div class="text"><p>Hive processes joins very late in the processing system, which results in it being very greedy and aggressive with reading all columns of the table when joining data.</p>
+<p>This implies that something like</p>
+<p>select * from a join b on (a.key = b.key);</p>
+<p>will have to read every single column in a and b, irrespective of whether one of the is a small table fitting in memory.</p>
+<p>Mapjoins are a special class of hive's fast join operations which deal with one of the tables being very small.</p>
+<p>If table b is a very small table, it can be read into memory entirely in the mapper. Which means the join operation has been reduced to a check whether the key from table a is present in the hashtable in memory.</p>
+<p>This means that before the very first row of the big table is read, the entire key space of the small table is available in memory, which can be converted into a bloom filter and pushed down into the data reader, allowing for more selective processing of the data earlier in the pipeline.</p>
+<p>For more information on filter pushdowns in Hive - <a href="https://cwiki.apache.org/Hive/filterpushdowndev.html#FilterPushdownDev-UseCases" rel="nofollow">https://cwiki.apache.org/Hive/filterpushdowndev.html#FilterPushdownDev-UseCases</a></p>
+<p>And for bloomfilters, please read the wikipedia article on this probabilistic data structure. Also play around with <a href="http://www.jasondavies.com/bloomfilter/" rel="nofollow">http://www.jasondavies.com/bloomfilter/</a></p>
+<p>This has already been done before, with little success - <a href="https://issues.apache.org/jira/browse/HIVE-1721" rel="nofollow">https://issues.apache.org/jira/browse/HIVE-1721</a></p>
+<p>ORC has fledgling support for predicate pushdowns - needs <a href="https://reviews.facebook.net/D9831" rel="nofollow">https://reviews.facebook.net/D9831</a> + <a href="https://issues.apache.org/jira/browse/HIVE-4246" rel="nofollow">https://issues.apache.org/jira/browse/HIVE-4246</a></p></div>
+        </div>
+        <hr />
+      </div>
+      <div class="row">
+        <div class="span9">
+          <h3 class="h3-title">Project Members</h2>
+          <ul class="userset row">
+            
+              <li class="span2">
+                <a href="../../../t3rmin4t0r.html"><i class="icon-user"></i><br>t3rmin4t0r</a>
+              </li>
+            
+              <li class="span2">
+                <a href="../../../varundhussa.html"><i class="icon-user"></i><br>Varun Dhussa</a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span9">
+          <div class="section">
+            <h3 class="h3-title" id="comments">Comments</h3>
+            
+            <p>
+                <a href="https://hacknight.in/login.html">Login with Twitter or Google to leave a comment &rarr;</a>
+              </p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="span3">
+      <div class="row">
+        <div class="span1 pager-nav"><a href="3-hadoop-job-helpers-for-go-lang.html" title="Previous"><i class="icon-chevron-left"></i></a></div>
+        <div class="span1 pager-nav pull-right"><a href="1-hadoop-9335-including-unix-like-sort-options-for-ls-shell-command.html" title="Next"><i class="icon-chevron-right"></i></a></div>
+      </div>
+
+      <ul class="sidebar nav nav-list">
+
+        
+        
+        <li class="nav-header">Project Created by</li>
+        <li><a href="../../../t3rmin4t0r.html"><span class="icon-user">t3rmin4t0r</span></a></li>
+
+      </ul>
+      <!--<div class="source-files">
+        <div class="row">
+          <div class="span1">
+            <i class="icon-github icon-4x"></i>
+          </div>
+          <div class="span2 source-details">
+            <ul class="nav nav-list">
+              <li class="nav-header">Find Source Files Here..</li>
+              <li><a href="#">Hadoop, MapReduce and friends</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>-->
+    </div>
+
+  </div>
+
+
+
+        </div>
+      <!-- /container -->
+      <div id="root_footer"></div>
+    </div>
+    <!-- /root -->
+    <footer>
+        <div class="footer-inner">
+          <div class="container">
+            <span class="no-print">Copyright &copy; 2010-15 HasGeek</span>
+          </div>
+        </div>
+      </footer>
+
+  <script src="https://hacknight.in/_baseframe/js/modernizr.min.js"></script>
+  <!-- Included JS Files -->
+  <!--[if lt IE 9]>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      if (typeof jQuery === 'undefined')
+        document.write('<script type="text/javascript" src="/_baseframe/js/jquery-1.11.2.min.js"><\/script>');
+    </script>
+  <![endif]-->
+  <!--[if gte IE 9]><!-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script type="text/javascript">
+        if (typeof jQuery === 'undefined')
+          document.write('<script type="text/javascript" src="https://hacknight.in/_baseframe/js/jquery-2.1.3.min.js"><\/script>');
+      </script>
+  <!--<![endif]-->
+  
+  <script type="text/javascript" src="https://hacknight.in/static/js/baseframe-packed.js"></script><script type="text/javascript" src="https://hacknight.in/_baseframe/js/leaflet.js"></script><script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', "UA-19123154-24", 'auto');
+      // Track Device Pixel Ratio
+      var pixelRatio = window.getDevicePixelRatio();
+      ga('set', 'metric1', pixelRatio);
+      ga('set', 'dimension1', "project_view");
+      ga('send', 'pageview');
+    </script>
+<script type="text/javascript">
+  $(function() {
+    commentsInit("https://hacknight.in/fifthelephant/2013-hadoop/projects/2-bloom-filter-pushdown-predicates-for-hives-map-joins")});
+    </script>
+
+</body>
+</html>

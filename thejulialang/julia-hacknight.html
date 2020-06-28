@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js no-userlogin"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Julia Hacknight — Hacknight</title>
+    <meta name="DC.title" content="Julia Hacknight" />
+    <meta property="og:title" content="Julia Hacknight" />
+  <meta name="description" content="" />
+  <meta property="og:description" content="" />
+  <meta name="author" href="/humans.txt" />
+  <meta name="csrf-token" content="ImY2ZTkyMWRhOTQ5YzA0YWQwZTRlZjAxYjhjNDk3NWViYWUxNDBkYzki.XnwnBA.tpFc6D-7SuIwNiyzIT0arJ6BkDE" />
+  
+  <link rel="icon" href="../favicon.ico" />
+    <link rel="canonical" href="julia-hacknight.html" />
+    <meta property="og:url" content="https://hacknight.in/thejulialang/julia-hacknight" />
+  <!-- Overriding so that facebook can pickup hacknight logo rather than HasGeek logo-->
+  <!-- http://stackoverflow.com/questions/1138460/how-does-facebook-sharer-select-images -->
+  <link rel="image_src" href="../static/img/hacknightlogo.png" />
+  <meta property="og:image" content="/static/img/hacknightlogo.png" />
+  <meta name="referrer" content="always" />
+
+  <!-- Included CSS Files -->
+  <link rel="stylesheet" type="text/css" href="../static/css/baseframe-packed.css" /><link rel="stylesheet" type="text/css" href="../_baseframe/css/leaflet.css" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic,600italic,400,600" />
+</head>
+<body>
+  <div id="root">
+      <!-- headerbox -->
+      
+  <header>
+    <div id="hg-bar" class="no-print hg-dark">
+    <div class="container">
+          <ul id="hg-barlinks">
+            
+    <li id="hg-networkbar-home" class="strong"><a href="https://hasgeek.com/">HasGeek</a></li>
+    <li id="hg-networkbar-hasjob"><a href="https://hasjob.co/">Hasjob</a></li>
+    <li id="hg-networkbar-hgtv"><a href="https://hasgeek.tv/">HGTV</a></li>
+    <li id="hg-networkbar-talkfunnel"><a href="https://talkfunnel.com/">Talkfunnel</a></li>
+    <li id="hg-networkbar-events"><a href="julia-hacknight.html#" class="hg-submenu">Events</a>
+        <ul>
+          
+    <li id="hg-networkbar-metarefresh"><a href="https://metarefresh.in/">Meta Refresh</a></li>
+    <li id="hg-networkbar-rootconf"><a href="https://rootconf.in/">Rootconf</a></li>
+    <li id="hg-networkbar-fifthelephant"><a href="https://fifthelephant.in/">The Fifth Elephant</a></li>
+    <li id="hg-networkbar-jsfoo"><a href="https://jsfoo.in/">JSFoo</a></li>
+    <li id="hg-networkbar-droidcon"><a href="https://droidcon.in/">Droidcon India</a></li>
+    <li id="hg-networkbar-pastevents" class="hg-menu-section">Past events</li>
+    <li id="hg-networkbar-angularjs-miniconf"><a href="https://metarefresh.in/2014/angularjs-miniconf">AngularJS Miniconf</a></li>
+    <li id="hg-networkbar-cartonama"><a href="https://cartonama.com/2012">Cartonama Conference</a></li>
+    <li id="hg-networkbar-phpcloud"><a href="https://phpcloud.hasgeek.com/">Scaling PHP in the Cloud</a></li>
+    <li id="hg-networkbar-androidcamp"><a href="https://androidcamp.hasgeek.com/">AndroidCamp</a></li>
+    <li id="hg-networkbar-doctypehtml5"><a href="http://www.doctypehtml5.in/">DocType HTML5</a></li>
+        </ul></li>
+          </ul>
+        <ul id="hg-usertools">
+          
+            <li><a href="http://hacknight.in/login.html">Login or sign up</a></li>
+        </ul>
+            
+  <iframe height="0" width="0" tabindex="-1" style="display: none; border: 0; height: 0; width: 0" aria-hidden="true" role="presentation" src="https://auth.hasgeek.com/?client_id=th55APk8Q-yApn-fQ3Ah-Q&amp;login_url=https://hacknight.in/login"></iframe>
+
+    </div>
+  </div>
+    <div id="page-header-inner">
+      <div class="container">
+        <div class="row">
+          <div class="span10 logo">
+              <a href="../index.html" title="Home">
+              <img id="inner-page-logo" src="../static/img/hacknightlogo-small.png" alt="Hacknight">
+            </a>
+          </div>
+          <!--<div class="span2 home-buttons" id="start-btn-after-login">
+            
+              <a href="/login" class="btn btn-primary" id="create" title="Create your event">Start a hacknight</a>
+            
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </header>
+
+      <!-- /headerbox -->
+
+      
+        <div class="container" id="main-content">
+    
+  
+  
+  <div class="row section">
+    <div class="span9">
+
+      <div class="page-header">
+        <h3><a href="http://hacknight.in/thejulialang.1.html">The Julia Language</a><i class="icon-caret-right"></i></h3>
+        <h1>Julia Hacknight</h1>
+      </div>
+      <div class="event-description">
+        <span><p>HasGeek in association with the Julia Community is hosting a Hacknight to learn and hack Julia, a lightning fast programming language for technical computing. The Hacknight will be mentored by <strong>Viral B Shah</strong>, Co-creator of the Julia programming language. </p>
+<h3>What is Julia?</h3>
+<p>Julia is a high-level, high-performance dynamic programming language for technical computing, with syntax that is familiar to users of other technical computing environments. It provides a sophisticated compiler, distributed parallel execution, numerical accuracy, and an extensive mathematical function library. The library, largely written in Julia itself, also integrates mature, best-of-breed C and Fortran libraries for linear algebra, random number generation, signal processing, and string processing. </p>
+<p>In addition, the Julia developer community is contributing a number of external packages through Julia’s built-in package manager at a rapid pace. Julia programs are organized around multiple dispatch; by defining functions and overloading them for different combinations of argument types, which can also be user-defined. For a more in-depth discussion of the rationale and advantages of Julia over other systems, see the following highlights or read the introduction in the online manual.  - From Wikipedia. Unlike other mathematical programming languages, Julia is purpose built for distributed computing, scaling easily across muliple CPUs.</p>
+<h3>Why Julia? </h3>
+<p>In the words of the Julia Team:</p>
+<blockquote>“We want a language that’s open source, with a liberal license. We want the speed of C with the dynamism of Ruby. We want a language that’s homoiconic, with true macros like Lisp, but with obvious, familiar mathematical notation like Matlab. We want something as usable for general programming as Python, as easy for statistics as R, as natural for string processing as Perl, as powerful for linear algebra as Matlab, as good at gluing programs together as the shell. Something that is dirt simple to learn, yet keeps the most serious hackers happy. We want it interactive and we want it compiled. Did we mention it should be as fast as C?”</blockquote>
+<h3>You should attend if: </h3>
+<ol>
+<li>You use Matlab, but do not wish to pay thousands of dollars in license fees every year.</li>
+<li>You use octave, R, python, scilab, but want higher performance.</li>
+<li>You use C++ or Java for data analysis, but want something more productive.</li>
+<li>You love Julia, and want to contribute to it and make it better.</li>
+</ol>
+<p>Julia should appeal to professionals doing data analysis or technical computing at work, students and researchers in academia, and hobbyists who hack for the fun of it.</p>
+<h3>Mentor: </h3>
+<p><a href="http://www.linkedin.com/in/viralbshah" rel="nofollow">Viral B Shah</a> is the co-creator of the Julia Language. He has previously designed the policies and the technology behind the Aadhaar-based payments systems for Government payments and the e-KYC platform and worked as a senior scientist at Interactive Supercomputing. More on his LinkedIn page.  </p>
+<h3>What is a hacknight?</h3>
+<p>Hacknight is a space where you can work on your pet project, try a new idea or test the waters of new tools, technologies and languages. At hacknights, you meet new people, make friends and network. Overall, a hacknight is an amazing, hands-on learning experience.</p>
+<p>HasGeek's hacknights provide developers the opportunity to work in an easy, relaxed, peer-to-peer format, over a period of 12-20 hours.</p>
+<h3>Next Steps: </h3>
+<ol>
+<li>Register for the hacknight. You will receive a confirmation from us.</li>
+<li>Propose a project idea, and/or join a team.</li>
+<li>Comment on other projects.</li>
+<li>Come to the hacknight with your ideas and gear!</li>
+<li>Write awesome code!</li>
+</ol>
+<p>Food, beverages and facilities will be provided to all participants during the hacknight. </p></span>
+      </div>
+    </div>
+    <div class="span3">
+      <ul class="well nav nav-list sidebar">
+          <li><i class="icon-calendar"></i><span>Sat, 25 May  2:00 PM &mdash;  9:00 AM 26 May 2013</span></li>
+        <li><i class="icon-money"></i><span>Entry Fee: 500 (Entry is free for Fifth Elephant 2013 ticket holders) . Entry for the Julia tutorial is free.</span></li>
+          <li><a href="../venue/centre-for-internet-and-society.html"><i class="icon-map-marker"></i><span>Centre for Internet and Society</span></a></li>
+          <li><i class="icon-blank"></i><span>No 194, 2nd C Cross, 4th Main</span></li>
+          <li><i class="icon-blank"></i><span>Opp. Domlur Club, Domlur 2nd Stage</span></li>
+          <li><i class="icon-blank"></i><span>Bangalore, Karnataka &ndash; 560 071, IN</span></li>
+        <li><a href="http://julialang.org/" target="_blank"><i class="icon-link"></i><span>julialang.org</span></a></li>
+
+        
+          <li class="nav-header">Your participation</li>
+        <li><a href="http://hacknight.in/thejulialang/julia-hacknight/apply.html"><i class="icon-signin"></i><span>Register now (login required)</span></a></li>
+        </ul>
+
+      <div class="share">
+        <ul>
+          <li>
+            <a class="btn btn-dark" target="_blank" href="http://twitter.com/share?url=https://hacknight.in/thejulialang/julia-hacknight&amp;via=HasGeek&amp;text=Julia Hacknight" class="socialite twitter-share" data-url="https://hacknight.in/thejulialang/julia-hacknight" data-text="Julia Hacknight" data-via="HasGeek">
+              <span class="icon-twitter"></span>
+            </a>
+          </li>
+          <li>
+            <a class="btn btn-dark" target="_blank" href="http://www.facebook.com/sharer.php?u=https://hacknight.in/thejulialang/julia-hacknight&amp;t=Julia Hacknight" class="socialite facebook-share" data-href="https://hacknight.in/thejulialang/julia-hacknight">
+              <span class="icon-facebook"></span>
+            </a>
+          </li>
+          <li>
+            <a class="btn btn-dark" target="_blank" href="https://plus.google.com/share?url=https://hacknight.in/thejulialang/julia-hacknight" class="socialite googleplus-share" data-href="https://hacknight.in/thejulialang/julia-hacknight" data-action="share">
+              <span class="icon-google-plus"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <ul class="nav nav-tabs nav-tabs-auto">
+    <li><a href="julia-hacknight.html#participants" data-toggle="tab">Participants</a></li>
+    <li><a href="julia-hacknight.html#projects" data-toggle="tab">Projects</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane" id="participants">
+      <div class="row"><div class="span3 participant">
+        <a href="http://hacknight.in/varmaaditya.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/varmaaditya.html">aditya varma</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">1</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/anirban-bhattacharjee.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/anirban-bhattacharjee.html">Anirban Bhattacharjee</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">2</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/cerebraltangent.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/cerebraltangent.html">Bharat Shetty Barkur</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">3</div>
+      </div><div class="span3 participant">
+        <a href="../bhawanih9.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="../bhawanih9.html">Bhawani Shankar Mahapatra</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">4</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/chetankumarh.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/chetankumarh.html">Chetan Kumar Honnagangappa</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">5</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/chidambar.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/chidambar.html">chidambar kulkarni</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">6</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/deeputp.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/deeputp.html">Deepu Thomas Philip</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">7</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/dhilipsiva.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/dhilipsiva.html">dhilipsiva</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    1 Project
+                  
+                </em>
+                <ul><li class="project-color-tab project-num9"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/9-write-a-beginners-guide-to-julia-for-users-of-your-favourite-language.html" title="Write a beginners guide to Julia for users of &lt;your favourite language&gt;"> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">8</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/petrovgovind.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/petrovgovind.html">Govindarajan</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    1 Project
+                  
+                </em>
+                <ul><li class="project-color-tab project-num5"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/5-implement-the-computer-language-shootout-benchmarks.html" title="Implement the Computer Language Shootout Benchmarks "> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">9</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/gurpreetsingh.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/gurpreetsingh.html">Gurpreet Singh</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">10</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/harikrishnasp.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/harikrishnasp.html">harikrishna</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">11</div>
+      </div><div class="span3 participant">
+        <a href="../harisibrahimkv.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="../harisibrahimkv.html">Haris Ibrahim K. V.</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">12</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/harsh123.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/harsh123.html">harsh</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">13</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/harsjain.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/harsjain.html">Harshit Jain</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    1 Project
+                  
+                </em>
+                <ul><li class="project-color-tab project-num4"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/4-big-data-analytics-project.html" title="Big Data analytics project"> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">14</div>
+      </div><div class="span3 participant">
+        <a href="../jamna.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="../jamna.html">Jamna Vyas</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">15</div>
+      </div><div class="span3 participant">
+        <a href="../jace.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="../jace.html">Kiran Jonnalagadda</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">16</div>
+      </div><div class="span3 participant">
+        <a href="../kracekumar.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="../kracekumar.html">Kracekumar Ramaraju</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">17</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/manuj10.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/manuj10.html">Manuj Paliwal</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    1 Project
+                  
+                </em>
+                <ul><li class="project-color-tab project-num9"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/9-write-a-beginners-guide-to-julia-for-users-of-your-favourite-language.html" title="Write a beginners guide to Julia for users of &lt;your favourite language&gt;"> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">18</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/minal17.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/minal17.html">Minal Patil</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">19</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/draigonel.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/draigonel.html">Naveen</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">20</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/niketkumar.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/niketkumar.html">niket kumar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    1 Project
+                  
+                </em>
+                <ul><li class="project-color-tab project-num3"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/3-parallel-computing-with-distributed-arrays.html" title="Parallel computing with distributed arrays"> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">21</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/nishitgupta.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/nishitgupta.html">Nishit</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">22</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/Ql7dpMWbSuOv2_B7Ulg5Eg.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/Ql7dpMWbSuOv2_B7Ulg5Eg.html">Pramod Biligiri</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">23</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/pranav7.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/pranav7.html">Pranav Singh</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    1 Project
+                  
+                </em>
+                <ul><li class="project-color-tab project-num7"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/7-ide-for-julia-eclipse-integration.html" title="IDE for julia - Eclipse integration"> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">24</div>
+      </div><div class="span3 participant">
+        <a href="https://hacknight.in/praseethakr"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="https://hacknight.in/praseethakr">Praseetha KR</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">25</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/p7h.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/p7h.html">Prashanth Babu</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    1 Project
+                  
+                </em>
+                <ul><li class="project-color-tab project-num4"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/4-big-data-analytics-project.html" title="Big Data analytics project"> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">26</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/nutsiepully.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/nutsiepully.html">Pulkit Bhuwalka</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">27</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/ramavattigunta.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/ramavattigunta.html">RamaVattigunta</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">28</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/xolve.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/xolve.html">Ravi</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">29</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/sandyridgeracer.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/sandyridgeracer.html">Sandeep Samdaria</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">30</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/fountainhead.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/fountainhead.html">Santosh Srinivas</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">31</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/laeeqentc.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/laeeqentc.html">Shaikh Mohammed Laeeq</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">32</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/sidkashyap.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/sidkashyap.html">Sidharth N Kashyap</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">33</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/sc1.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/sc1.html">Sudip Chatterjee</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">34</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/sunny88mittal.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/sunny88mittal.html">Sunny Mittal</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">35</div>
+      </div><div class="span3 participant">
+        <a href="../supreeth.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="../supreeth.html">Supreeth Srinivasamurthy</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">36</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/surajatreya.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/surajatreya.html">suraj atreya</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">37</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/swaroop.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/swaroop.html">Swaroop Krothapalli</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">38</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/t3rmin4t0r.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/t3rmin4t0r.html">t3rmin4t0r</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">39</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/venkatapingali.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/venkatapingali.html">Venkata Pingali</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">40</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/vipulnayyar.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/vipulnayyar.html">Vipul Nayyar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">41</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/viralbshah.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/viralbshah.html">Viral B. Shah</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  
+                    9 Projects
+                  
+                </em>
+                <ul><li class="project-color-tab project-num1"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/1-up-for-grabs-project-ideas.html" title="&#34;Up For Grabs&#34; project ideas"> </a></li>
+                  <li class="project-color-tab project-num2"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/2-mysql-interface-from-julia.html" title="MySQL interface from Julia"> </a></li>
+                  <li class="project-color-tab project-num3"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/3-parallel-computing-with-distributed-arrays.html" title="Parallel computing with distributed arrays"> </a></li>
+                  <li class="project-color-tab project-num4"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/4-big-data-analytics-project.html" title="Big Data analytics project"> </a></li>
+                  <li class="project-color-tab project-num5"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/5-implement-the-computer-language-shootout-benchmarks.html" title="Implement the Computer Language Shootout Benchmarks "> </a></li>
+                  <li class="project-color-tab project-num6"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/6-image-processing-library.html" title="Image processing library"> </a></li>
+                  <li class="project-color-tab project-num7"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/7-ide-for-julia-eclipse-integration.html" title="IDE for julia - Eclipse integration"> </a></li>
+                  <li class="project-color-tab project-num8"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/8-implement-readline-capabilities-in-julia.html" title="Implement readline capabilities in julia"> </a></li>
+                  <li class="project-color-tab project-num9"><a href="http://hacknight.in/thejulialang/julia-hacknight/projects/9-write-a-beginners-guide-to-julia-for-users-of-your-favourite-language.html" title="Write a beginners guide to Julia for users of &lt;your favourite language&gt;"> </a></li>
+                  </ul>
+              
+            
+          </div>
+        </div>
+
+        <div class="participant-count">42</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/yashu87.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/yashu87.html">Yashaswini Chandrashekar</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">43</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/zainabbawa.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/zainabbawa.html">Zainab Bawa</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">44</div>
+      </div>
+</div>
+      <br />
+      
+        <h3 class="h3-title">Other Participants</h3>
+        <div class="row"><div class="span3 participant">
+        <a href="http://hacknight.in/munibabu.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/munibabu.html">Muni Babu Keepudi</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">1</div>
+      </div><div class="span3 participant">
+        <a href="http://hacknight.in/prakhargoel.html"><div class="participant-img"><i class="icon-user icon-4x"></i></div></a>
+        <div class="participant-name">
+          <b><a href="http://hacknight.in/prakhargoel.html">Prakhar Kumar Goel</a></b>
+
+          <div class="participating-projects">
+            
+                <em class="participating-project-header">
+                  No Projects</em>
+            
+          </div>
+        </div>
+
+        <div class="participant-count">2</div>
+      </div>
+</div>
+      
+    </div>
+    <div class="tab-pane" id="projects">
+      <div class="project-cards">
+        <ul class="cardset light-bg row">
+          
+            <li class="span3">
+              <a class="project-num9" href="http://hacknight.in/thejulialang/julia-hacknight/projects/9-write-a-beginners-guide-to-julia-for-users-of-your-favourite-language.html">
+                <div class="card-title">
+                  <h2>Write a beginners guide to Julia for users of &lt;your favourite language&gt;</h2>
+                </div>
+                <div class="member-count">
+                  
+                    3 members
+                </div>
+                <div class="card-body">
+                  Improve documentation
+                </div>
+              </a>
+            </li>
+          
+            <li class="span3">
+              <a class="project-num8" href="http://hacknight.in/thejulialang/julia-hacknight/projects/8-implement-readline-capabilities-in-julia.html">
+                <div class="card-title">
+                  <h2>Implement readline capabilities in julia</h2>
+                </div>
+                <div class="member-count">
+                  
+                    1 member
+                  
+                </div>
+                <div class="card-body">
+                  Readline replacement
+                </div>
+              </a>
+            </li>
+          
+            <li class="span3">
+              <a class="project-num7" href="http://hacknight.in/thejulialang/julia-hacknight/projects/7-ide-for-julia-eclipse-integration.html">
+                <div class="card-title">
+                  <h2>IDE for julia - Eclipse integration</h2>
+                </div>
+                <div class="member-count">
+                  
+                    2 members
+                </div>
+                <div class="card-body">
+                  IDE for Julia with Eclipse
+                </div>
+              </a>
+            </li>
+          
+            <li class="span3">
+              <a class="project-num6" href="http://hacknight.in/thejulialang/julia-hacknight/projects/6-image-processing-library.html">
+                <div class="card-title">
+                  <h2>Image processing library</h2>
+                </div>
+                <div class="member-count">
+                  
+                    1 member
+                  
+                </div>
+                <div class="card-body">
+                  image processing
+                </div>
+              </a>
+            </li>
+          
+            <li class="span3">
+              <a class="project-num5" href="http://hacknight.in/thejulialang/julia-hacknight/projects/5-implement-the-computer-language-shootout-benchmarks.html">
+                <div class="card-title">
+                  <h2>Implement the Computer Language Shootout Benchmarks </h2>
+                </div>
+                <div class="member-count">
+                  
+                    2 members
+                </div>
+                <div class="card-body">
+                  Debian Shootout benchmarks
+                </div>
+              </a>
+            </li>
+          
+            <li class="span3">
+              <a class="project-num4" href="http://hacknight.in/thejulialang/julia-hacknight/projects/4-big-data-analytics-project.html">
+                <div class="card-title">
+                  <h2>Big Data analytics project</h2>
+                </div>
+                <div class="member-count">
+                  
+                    3 members
+                </div>
+                <div class="card-body">
+                  Analyse a large dataset
+                </div>
+              </a>
+            </li>
+          
+            <li class="span3">
+              <a class="project-num3" href="http://hacknight.in/thejulialang/julia-hacknight/projects/3-parallel-computing-with-distributed-arrays.html">
+                <div class="card-title">
+                  <h2>Parallel computing with distributed arrays</h2>
+                </div>
+                <div class="member-count">
+                  
+                    2 members
+                </div>
+                <div class="card-body">
+                  Distributed array capabilities
+                </div>
+              </a>
+            </li>
+          
+            <li class="span3">
+              <a class="project-num2" href="http://hacknight.in/thejulialang/julia-hacknight/projects/2-mysql-interface-from-julia.html">
+                <div class="card-title">
+                  <h2>MySQL interface from Julia</h2>
+                </div>
+                <div class="member-count">
+                  
+                    1 member
+                  
+                </div>
+                <div class="card-body">
+                  MySQL interface from Julia
+                </div>
+              </a>
+            </li>
+          
+            <li class="span3">
+              <a class="project-num1" href="http://hacknight.in/thejulialang/julia-hacknight/projects/1-up-for-grabs-project-ideas.html">
+                <div class="card-title">
+                  <h2>&#34;Up For Grabs&#34; project ideas</h2>
+                </div>
+                <div class="member-count">
+                  
+                    1 member
+                  
+                </div>
+                <div class="card-body">
+                  18 project ideas
+                </div>
+              </a>
+            </li>
+          
+          <div class="mob-seperator">
+            <br />
+          </div>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+    <div class="box-border"><div id="map" class="event-map"></div></div>
+  
+
+
+
+        </div>
+      <!-- /container -->
+      <div id="root_footer"></div>
+    </div>
+    <!-- /root -->
+    <footer>
+        <div class="footer-inner">
+          <div class="container">
+            <span class="no-print">Copyright &copy; 2010-15 HasGeek</span>
+          </div>
+        </div>
+      </footer>
+
+  <script src="../_baseframe/js/modernizr.min.js"></script>
+  <!-- Included JS Files -->
+  <!--[if lt IE 9]>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      if (typeof jQuery === 'undefined')
+        document.write('<script type="text/javascript" src="/_baseframe/js/jquery-1.11.2.min.js"><\/script>');
+    </script>
+  <![endif]-->
+  <!--[if gte IE 9]><!-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script type="text/javascript">
+        if (typeof jQuery === 'undefined')
+          document.write('<script type="text/javascript" src="../_baseframe/js/jquery-2.1.3.min.js"><\/script>');
+      </script>
+  <!--<![endif]-->
+  
+  <script type="text/javascript" src="../static/js/baseframe-packed.js"></script><script type="text/javascript" src="../_baseframe/js/leaflet.js"></script><script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', "UA-19123154-24", 'auto');
+      // Track Device Pixel Ratio
+      var pixelRatio = window.getDevicePixelRatio();
+      ga('set', 'metric1', pixelRatio);
+      ga('set', 'dimension1', "event_view");
+      ga('send', 'pageview');
+    </script>
+<script>
+
+
+
+
+</script>
+
+<script type="text/javascript">
+  $(function() {
+    
+      var map = new L.Map('map');
+
+      //BC9A493B41014CAABB98F0471D759707
+      var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/0cb2761ce981414391f2941dd891892c/999/256/{z}/{x}/{y}.png',
+        subDomains = ['a','b','c'],
+        cloudmadeAttrib = '<a href="http://maps.cloudmade.com" target="_blank">CloudMade</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
+      var cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttrib, subdomains: subDomains});
+      var venue = new L.LatLng(12.96470, 77.63750); // geographical point (longitude and latitude)
+      map.setView(venue, 16).addLayer(cloudmade);
+
+      var venue_marker = new L.Marker(venue);
+      map.addLayer(venue_marker);
+      venue_marker.bindPopup('Centre for Internet and Society').openPopup();
+      map.scrollWheelZoom.disable();
+
+      map.on('zoomend', onZoomend);
+      function onZoomend(){
+          map.setView(venue, map.getZoom());
+      };
+    
+    // When admin clicks on sync, do POST.
+    $(".sync").on('click', function(e){
+      e.preventDefault();
+      $("#sync_form").submit();
+    });
+  });
+  </script>
+
+
+</body>
+</html>
